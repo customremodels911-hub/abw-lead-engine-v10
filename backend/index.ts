@@ -99,10 +99,10 @@ async function recentExternalIds(): Promise<Set<string>> {
     return new Set(items.map(item => item.externalId).filter(Boolean));
 }
 
-async function scanRedditCharlotte(): Promise<{ added: number; scanned: number }> {
-    const url = 'https://www.reddit.com/r/Charlotte/new.json?limit=100';
+async function scanRedditMarket(subreddit: string, market: string, source: string): Promise<{ added: number; scanned: number }> {
+    const url = `https://www.reddit.com/r/${subreddit}/new.json?limit=100`;
     const response = await fetch(url, { headers: { 'User-Agent': 'ABWLeadEngineV10/1.0 public-opportunity-monitor' } });
-    if (!response.ok) throw new Error(`Public source returned ${response.status}`);
+    if (!response.ok) throw new Error(`${source} returned ${response.status}`);
     const listing = await response.json() as RedditListing;
     const children = listing.data?.children || [];
     const known = await recentExternalIds();
@@ -110,31 +110,50 @@ async function scanRedditCharlotte(): Promise<{ added: number; scanned: number }
     for (const child of children) {
         const post = child.data || {};
         const id = post.id || '';
-        if (!id || known.has(`reddit:${id}`)) continue;
+        const externalId = `reddit:${subreddit}:${id}`;
+        if (!id || known.has(externalId)) continue;
         const text = `${post.title || ''}\n${post.selftext || ''}`.trim();
         if (!looksLikeOpportunity(text)) continue;
         const permalink = post.permalink ? `https://www.reddit.com${post.permalink}` : '';
         await addLead({
-            name: post.author ? `Reddit homeowner - u/${post.author}` : 'Reddit homeowner opportunity',
-            market: 'Charlotte / Lake Norman',
+            name: post.author ? `Reddit opportunity - u/${post.author}` : 'Reddit project opportunity',
+            market,
             project: classifyProject(text),
-            source: 'Public Reddit - Charlotte',
-            notes: `${post.title || 'Homeowner project request'}${post.selftext ? ` | ${post.selftext.slice(0, 700)}` : ''}${permalink ? ` | Contact/post: ${permalink}` : ''}`,
-            lead_id: `reddit:${id}`
-        }, 'Public Reddit - Charlotte');
-        known.add(`reddit:${id}`);
+            source,
+            notes: `${post.title || 'Project request'}${post.selftext ? ` | ${post.selftext.slice(0, 700)}` : ''}${permalink ? ` | Contact/post: ${permalink}` : ''}`,
+            lead_id: externalId
+        }, source);
+        known.add(externalId);
         added += 1;
         if (added >= 20) break;
     }
     return { added, scanned: children.length };
 }
 
-export const publicOpportunityScan = async () => {
-    try {
-        await scanRedditCharlotte();
-    } catch (err) {
-        console.warn('Public opportunity scan failed', err);
+async function scanPublicMarkets() {
+    const sources = [
+        { subreddit: 'Charlotte', market: 'Charlotte / Lake Norman', source: 'Public Reddit - Charlotte' },
+        { subreddit: 'nyc', market: 'New York City', source: 'Public Reddit - NYC' },
+        { subreddit: 'AskNYC', market: 'New York City', source: 'Public Reddit - AskNYC' }
+    ];
+    const results = [];
+    for (const item of sources) {
+        try {
+            results.push({ ...item, ...(await scanRedditMarket(item.subreddit, item.market, item.source)) });
+        } catch (err) {
+            console.warn(`${item.source} scan failed`, err);
+            results.push({ ...item, added: 0, scanned: 0 });
+        }
     }
+    return {
+        added: results.reduce((sum, item) => sum + item.added, 0),
+        scanned: results.reduce((sum, item) => sum + item.scanned, 0),
+        results
+    };
+}
+
+export const publicOpportunityScan = async () => {
+    await scanPublicMarkets();
     return { statusCode: 200 };
 };
 
@@ -191,11 +210,11 @@ export const handler = router({
     }],
     'POST /api/public-opportunities/scan': [async () => {
         try {
-            const result = await scanRedditCharlotte();
-            return json({ ok: true, ...result, source: 'Public Reddit - Charlotte' });
+            const result = await scanPublicMarkets();
+            return json({ ok: true, ...result, markets: ['Charlotte / Lake Norman', 'New York City'] });
         } catch (err) {
             console.warn('On-demand public opportunity scan failed', err);
-            return error('Public opportunity source is temporarily unavailable', 502);
+            return error('Public opportunity sources are temporarily unavailable', 502);
         }
     }],
     'POST /webhooks/google-ads': [async ({ body }) => {
