@@ -1,0 +1,9 @@
+[
+  {
+    "name": "public-opportunity-scan",
+    "cron": "*/30 * * * *",
+    "handler": "publicOpportunityScan",
+    "timezone": "America/New_York",
+    "payload": { "market": "Charlotte / Lake Norman" }
+  }
+]
