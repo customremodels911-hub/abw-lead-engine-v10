@@ -73,8 +73,8 @@ type Lead = { name: string; phone: string; email: string; market: string; projec
 
 type RedditListing = { data?: { children?: Array<{ data?: { id?: string; title?: string; selftext?: string; author?: string; permalink?: string } }> } };
 
-const PUBLIC_KEYWORDS = ['contractor', 'remodel', 'renovation', 'addition', 'electrician', 'electrical', 'fence', 'fencing', 'bathroom', 'kitchen', 'deck', 'porch', 'flooring', 'roof', 'handyman'];
-const DEMAND_PHRASES = ['looking for', 'need ', 'recommend', 'recommendation', 'quote', 'estimate', 'seeking', 'anyone know', 'who can'];
+const PUBLIC_KEYWORDS = ['contractor', 'remodel', 'renovation', 'addition', 'electrician', 'electrical', 'fence', 'fencing', 'bathroom', 'kitchen', 'deck', 'porch', 'flooring', 'roof', 'handyman', 'repair', 'rehab'];
+const DEMAND_PHRASES = ['looking for', 'need ', 'recommend', 'recommendation', 'quote', 'estimate', 'seeking', 'anyone know', 'who can', 'hire', 'contractor needed'];
 
 function classifyProject(text: string): string {
     const value = text.toLowerCase();
@@ -134,7 +134,9 @@ async function scanPublicMarkets() {
     const sources = [
         { subreddit: 'Charlotte', market: 'Charlotte / Lake Norman', source: 'Public Reddit - Charlotte' },
         { subreddit: 'nyc', market: 'New York City', source: 'Public Reddit - NYC' },
-        { subreddit: 'AskNYC', market: 'New York City', source: 'Public Reddit - AskNYC' }
+        { subreddit: 'AskNYC', market: 'New York City', source: 'Public Reddit - AskNYC' },
+        { subreddit: 'VirginiaBeach', market: 'Hampton Roads / Virginia Beach', source: 'Public Reddit - Virginia Beach' },
+        { subreddit: 'HamptonRoads', market: 'Hampton Roads / Virginia Beach', source: 'Public Reddit - Hampton Roads' }
     ];
     const results = [];
     for (const item of sources) {
@@ -159,10 +161,13 @@ export const publicOpportunityScan = async () => {
 
 function scoreLead(input: IncomingLead): number {
     let score = 20;
+    const text = `${input.project || input.request?.category || ''} ${input.notes || input.request?.description || ''}`.toLowerCase();
     if (input.phone || input.request?.phone) score += 15;
     if (input.email || input.request?.email) score += 10;
     if (input.project || input.request?.category) score += 15;
     if (Number(input.value || 0) >= 5000) score += 20;
+    if (DEMAND_PHRASES.some(phrase => text.includes(phrase))) score += 10;
+    if (['addition', 'kitchen', 'bathroom', 'electrical', 'renovation', 'remodel'].some(term => text.includes(term))) score += 10;
     return Math.min(score, 100);
 }
 
@@ -211,7 +216,7 @@ export const handler = router({
     'POST /api/public-opportunities/scan': [async () => {
         try {
             const result = await scanPublicMarkets();
-            return json({ ok: true, ...result, markets: ['Charlotte / Lake Norman', 'New York City'] });
+            return json({ ok: true, ...result, markets: ['Charlotte / Lake Norman', 'Hampton Roads / Virginia Beach', 'New York City'] });
         } catch (err) {
             console.warn('On-demand public opportunity scan failed', err);
             return error('Public opportunity sources are temporarily unavailable', 502);
