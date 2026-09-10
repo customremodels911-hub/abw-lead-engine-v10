@@ -1,6 +1,6 @@
 import { db, error, json, router, secrets } from '@appdeploy/sdk';
 
-type IncomingLead = { name?: string; phone?: string; email?: string; market?: string; project?: string; source?: string; notes?: string; value?: number; event?: string; lead_id?: string; request?: { name?: string; phone?: string; email?: string; category?: string; description?: string; location?: string } };
+type IncomingLead = { name?: string; phone?: string; email?: string; market?: string; project?: string; source?: string; notes?: string; value?: number; nextAction?: string; nextActionDue?: string; event?: string; lead_id?: string; request?: { name?: string; phone?: string; email?: string; category?: string; description?: string; location?: string } };
 
 type ThumbtackNegotiation = { negotiationID?: string; category?: { name?: string }; customer?: { displayName?: string; phoneNumber?: string; email?: string; location?: { city?: string; state?: string; zipCode?: string } }; details?: Array<{ question?: string; answer?: string }>; createTime?: string };
 type GoogleLeadColumn = { column_id?: string; column_name?: string; string_value?: string };
@@ -69,7 +69,7 @@ function googleAdsToLead(body: GoogleAdsLead): IncomingLead {
     };
 }
 
-type Lead = { name: string; phone: string; email: string; market: string; project: string; source: string; notes: string; status: string; score: number; createdAt: string; externalId: string };
+type Lead = { name: string; phone: string; email: string; market: string; project: string; source: string; notes: string; status: string; score: number; createdAt: string; externalId: string; estimatedValue: number; nextAction: string; nextActionDue: string; lastTouch: string; statusUpdatedAt: string };
 
 type RedditListing = { data?: { children?: Array<{ data?: { id?: string; title?: string; selftext?: string; author?: string; permalink?: string } }> } };
 
@@ -172,18 +172,26 @@ function scoreLead(input: IncomingLead): number {
 }
 
 function normalize(input: IncomingLead, source = 'Manual'): Lead {
+    const now = new Date().toISOString();
+    const defaultDue = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const resolvedSource = input.source || source;
     return {
         name: input.name || input.request?.name || 'Unknown Lead',
         phone: input.phone || input.request?.phone || '',
         email: input.email || input.request?.email || '',
         market: input.market || input.request?.location || 'Other',
         project: input.project || input.request?.category || 'General Remodeling',
-        source: input.source || source,
+        source: resolvedSource,
         notes: input.notes || input.request?.description || '',
         status: 'New Lead',
         score: scoreLead(input),
-        createdAt: new Date().toISOString(),
-        externalId: input.lead_id || ''
+        createdAt: now,
+        externalId: input.lead_id || '',
+        estimatedValue: Math.max(0, Number(input.value || 0)),
+        nextAction: input.nextAction || (resolvedSource.startsWith('Public Reddit') ? 'Review source post and respond if qualified' : 'Contact and qualify opportunity'),
+        nextActionDue: input.nextActionDue || defaultDue,
+        lastTouch: now,
+        statusUpdatedAt: now
     };
 }
 
@@ -194,16 +202,64 @@ async function addLead(input: IncomingLead, source?: string) {
     return { id, ...lead };
 }
 
+function conversionPriority(lead: Lead): number {
+    const stageWeight: Record<string, number> = {
+        'Deposit Due': 700,
+        'Won/Active': 650,
+        'Estimate/Bid': 550,
+        'Qualified': 450,
+        'Responded': 350,
+        'Contacted': 250,
+        'New Lead': 150,
+        'Hold': 25,
+        'Cash Collected': -100,
+        'Lost': -200
+    };
+    const today = new Date().toISOString().slice(0, 10);
+    const overdueBoost = lead.nextActionDue && lead.nextActionDue < today && !['Cash Collected', 'Lost'].includes(lead.status) ? 125 : 0;
+    const valueBoost = Math.min(Math.floor((lead.estimatedValue || 0) / 5000) * 10, 100);
+    return (stageWeight[lead.status] || 100) + overdueBoost + valueBoost + (lead.score || 0);
+}
+
 export const handler = router({
     'GET /api/_healthcheck': [async () => json({ ok: true, app: 'ABW Lead Engine V10' })],
     'GET /api/leads': [async () => {
         const { items } = await db.list<Lead>('leads', { limit: 100 });
-        return json({ leads: items.slice().reverse() });
+        const leads = items.slice().sort((a, b) => {
+            const priorityDiff = conversionPriority(b) - conversionPriority(a);
+            if (priorityDiff !== 0) return priorityDiff;
+            return Date.parse(b.createdAt || '1970-01-01') - Date.parse(a.createdAt || '1970-01-01');
+        });
+        return json({ leads });
     }],
     'POST /api/leads': [async ({ body }) => {
         const input = body as IncomingLead;
         if (!input?.name?.trim()) return error('Lead name is required', 400);
         return json({ ok: true, lead: await addLead(input) }, 201);
+    }],
+    'PUT /api/leads/:id/status': [async ({ params, body }) => {
+        const allowed = ['New Lead', 'Contacted', 'Responded', 'Qualified', 'Estimate/Bid', 'Deposit Due', 'Won/Active', 'Cash Collected', 'Hold', 'Lost'];
+        const nextStatus = String((body as { status?: string })?.status || '');
+        if (!allowed.includes(nextStatus)) return error('Invalid lead status', 400);
+        const [existing] = await db.get<Lead>('leads', [params.id]);
+        if (!existing) return error('Lead not found', 404);
+        const now = new Date().toISOString();
+        const [updated] = await db.update('leads', [{ id: params.id, record: { ...existing, status: nextStatus, statusUpdatedAt: now, lastTouch: now } }]);
+        if (!updated) return error('Failed to update lead', 500);
+        return json({ ok: true, lead: { id: params.id, ...existing, status: nextStatus, statusUpdatedAt: now, lastTouch: now } });
+    }],
+    'PUT /api/leads/:id/operator': [async ({ params, body }) => {
+        const input = (body || {}) as { estimatedValue?: number; nextAction?: string; nextActionDue?: string };
+        const [existing] = await db.get<Lead>('leads', [params.id]);
+        if (!existing) return error('Lead not found', 404);
+        const nextValue = input.estimatedValue === undefined ? existing.estimatedValue || 0 : Math.max(0, Number(input.estimatedValue || 0));
+        const nextAction = input.nextAction === undefined ? existing.nextAction || '' : String(input.nextAction).trim().slice(0, 240);
+        const nextActionDue = input.nextActionDue === undefined ? existing.nextActionDue || '' : String(input.nextActionDue).slice(0, 10);
+        const now = new Date().toISOString();
+        const record = { ...existing, estimatedValue: nextValue, nextAction, nextActionDue, lastTouch: now };
+        const [updated] = await db.update('leads', [{ id: params.id, record }]);
+        if (!updated) return error('Failed to update lead', 500);
+        return json({ ok: true, lead: { id: params.id, ...record } });
     }],
     'GET /api/integrations/thumbtack/status': [async () => {
         const names = await secrets.listSecretNames();
