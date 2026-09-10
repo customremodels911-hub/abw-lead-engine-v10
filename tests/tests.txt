@@ -1,0 +1,61 @@
+# Tests
+
+## Test 1 - Add, retain, and prioritize manual leads [sanity]
+Viewport: desktop
+Covers: manual lead intake, POST /api/leads, GET /api/leads, database persistence, score-based pipeline prioritization
+Description: Verifies manual leads persist and the more actionable lead is surfaced ahead of a lower-score lead.
+
+Steps:
+1. Add lead "Basic Test" with no phone/email and project "General Remodeling"
+2. Add lead "Priority Test" with phone "7575550101", email "priority@example.com", market "Virginia", and project "Electrical"
+3. Refresh the page and inspect the Lead Inbox order
+
+Expected: Both leads remain visible after refresh, and "Priority Test" appears above "Basic Test" because its lead score is higher.
+
+## Test 2 - Scan public homeowner opportunities
+Viewport: desktop
+Covers: direct public opportunity workflow, POST /api/public-opportunities/scan, public Reddit ingestion, lead deduplication, GET /api/leads
+Description: Verifies the operator can trigger a direct scan for public Charlotte, Hampton Roads, and New York City project requests and gets a visible result without disturbing the existing pipeline.
+
+Steps:
+1. Click "Scan Public Opportunities Now"
+2. Inspect the result notice
+3. Inspect the Lead Inbox
+
+Expected: A notice beginning "Public scan complete:" is visible and any newly matched records appear with a public Reddit source for Charlotte, Hampton Roads, or New York City.
+
+## Test 3 - Reject an unnamed manual lead
+Viewport: mobile
+Covers: manual intake validation, invalid-write guardrail
+Description: Verifies the form blocks an empty lead name before creating a record.
+
+Steps:
+1. Leave Name blank
+2. Click "Add to Pipeline"
+3. Inspect the message above the form
+
+Expected: "Lead name is required." is visible and no unnamed lead is added.
+
+## Test 4 - Create synthetic marketplace leads
+Viewport: desktop
+Covers: Thumbtack test intake, Google Ads test intake, POST /api/test-thumbtack, POST /api/test-google-ads, GET /api/leads, database persistence
+Description: Verifies the existing Thumbtack path and Google Ads intake path both create visible lead records without being confused with real leads.
+
+Steps:
+1. Click "Run Thumbtack Test"
+2. Click "Run Google Ads Test"
+3. Inspect the Lead Inbox
+
+Expected: "Thumbtack Test Lead" is visible with source "Thumbtack Test" and "Google Ads Test Lead" is visible with source "Google Ads Test".
+
+## Test 5 - Show webhook integration readiness
+Viewport: desktop
+Covers: GET /api/integrations/thumbtack/status, GET /api/integrations/google-ads/status, secure webhook readiness, Google Ads webhook integration route family
+Description: Verifies the UI reports readiness for both external lead integrations and exposes the Google Ads webhook path.
+
+Steps:
+1. Open the application
+2. Inspect the Thumbtack and Google Ads status badges
+3. Inspect the Google webhook statistic
+
+Expected: Both badges show either "READY" or "NEEDS SECRET", and the Google webhook path shows "/webhooks/google-ads".
