@@ -1,14 +1,8 @@
 [
   {
-    "name": "public-opportunity-scan",
-    "cron": "*/30 * * * *",
-    "handler": "publicOpportunityScan",
-    "timezone": "America/New_York"
-  },
-  {
-    "name": "revenue-ops-sweep",
+    "name": "v10-control-loop",
     "cron": "*/15 * * * *",
-    "handler": "revenueOpsSweep",
+    "handler": "v10ControlLoop",
     "timezone": "America/New_York"
   }
 ]
