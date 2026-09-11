@@ -73,17 +73,17 @@ type Lead = { name: string; phone: string; email: string; market: string; projec
 
 type RedditListing = { data?: { children?: Array<{ data?: { id?: string; title?: string; selftext?: string; author?: string; permalink?: string } }> } };
 
-const PUBLIC_KEYWORDS = ['contractor', 'remodel', 'renovation', 'addition', 'electrician', 'electrical', 'fence', 'fencing', 'bathroom', 'kitchen', 'deck', 'porch', 'flooring', 'roof', 'handyman', 'repair', 'rehab'];
-const DEMAND_PHRASES = ['looking for', 'need ', 'recommend', 'recommendation', 'quote', 'estimate', 'seeking', 'anyone know', 'who can', 'hire', 'contractor needed'];
+const PUBLIC_KEYWORDS = ['contractor', 'remodel', 'renovation', 'addition', 'add on', 'room addition', 'garage conversion', 'electrician', 'electrical', 'fence', 'fencing', 'bathroom', 'shower', 'walk-in shower', 'tub', 'accessibility', 'handicap', 'kitchen', 'cabinet', 'deck', 'porch', 'flooring', 'drywall', 'roof', 'chimney', 'structural', 'water damage', 'handyman', 'repair', 'rehab', 'full rehab', 'whole home'];
+const DEMAND_PHRASES = ['looking for', 'need ', 'i need', 'i want', 'want to', 'recommend', 'recommendation', 'quote', 'estimate', 'cost is', 'how much', 'planning', 'seeking', 'anyone know', 'who can', 'hire', 'contractor needed', 'repair or replace'];
 
 function classifyProject(text: string): string {
     const value = text.toLowerCase();
     if (value.includes('electric')) return 'Electrical';
     if (value.includes('fence')) return 'Fence';
-    if (value.includes('bath')) return 'Bathroom';
-    if (value.includes('kitchen')) return 'Kitchen';
-    if (value.includes('addition')) return 'Addition';
-    if (value.includes('roof')) return 'Roofing';
+    if (value.includes('bath') || value.includes('shower') || value.includes('tub')) return 'Bathroom';
+    if (value.includes('kitchen') || value.includes('cabinet')) return 'Kitchen';
+    if (value.includes('addition') || value.includes('add on') || value.includes('garage conversion') || value.includes('new room')) return 'Addition';
+    if (value.includes('roof') || value.includes('chimney')) return 'Roofing';
     if (value.includes('deck') || value.includes('porch')) return 'Deck / Porch';
     if (value.includes('floor')) return 'Flooring';
     return 'General Remodeling';
@@ -167,7 +167,8 @@ function scoreLead(input: IncomingLead): number {
     if (input.project || input.request?.category) score += 15;
     if (Number(input.value || 0) >= 5000) score += 20;
     if (DEMAND_PHRASES.some(phrase => text.includes(phrase))) score += 10;
-    if (['addition', 'kitchen', 'bathroom', 'electrical', 'renovation', 'remodel'].some(term => text.includes(term))) score += 10;
+    if (['addition', 'kitchen', 'bathroom', 'electrical', 'renovation', 'remodel', 'garage conversion', 'full rehab', 'whole home', 'structural', 'roof', 'water damage'].some(term => text.includes(term))) score += 10;
+    if (['asap', 'urgent', 'within the next', 'this month', 'soon'].some(term => text.includes(term))) score += 10;
     return Math.min(score, 100);
 }
 
