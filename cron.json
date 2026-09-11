@@ -3,7 +3,12 @@
     "name": "public-opportunity-scan",
     "cron": "*/30 * * * *",
     "handler": "publicOpportunityScan",
-    "timezone": "America/New_York",
-    "payload": { "market": "Charlotte / Lake Norman" }
+    "timezone": "America/New_York"
+  },
+  {
+    "name": "revenue-ops-sweep",
+    "cron": "*/15 * * * *",
+    "handler": "revenueOpsSweep",
+    "timezone": "America/New_York"
   }
 ]
