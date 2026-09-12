@@ -1154,7 +1154,7 @@ export const handler = router({
             secrets.listSecretNames()
         ]);
         return json({
-            alerts: alerts.filter(item => item.status === 'open').sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
+            alerts: alerts.filter(item => item.status === 'open' && Boolean(item.phone || item.email || item.sourceUrl)).sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
             recentOutreach: outreach.sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)).slice(0, 25),
             automaticEmailReady: names.includes('RESEND_API_KEY') && names.includes('RESEND_FROM_EMAIL'),
             ownerEmailAlertsReady: names.includes('RESEND_API_KEY') && names.includes('RESEND_FROM_EMAIL') && names.includes('OWNER_ALERT_EMAIL')
