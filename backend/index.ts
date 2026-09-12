@@ -907,7 +907,7 @@ async function createOwnerAlert(leadId: string, lead: Lead, instruction: string)
 }
 
 async function processLeadContact(leadId: string, lead: Lead): Promise<{ action: string; sent: boolean }> {
-    if (TERMINAL_STATUSES.has(lead.status) || lead.source.toLowerCase().includes('test')) return { action: 'ignored', sent: false };
+    if (TERMINAL_STATUSES.has(lead.status) || lead.source.toLowerCase().includes('test') || (isMarketSignal(lead) && !isContactableOpportunity(lead))) return { action: 'ignored', sent: false };
     const { items: outreach } = await db.list<OutreachEvent>('outreach_events', { limit: 100 });
     if (outreach.some(item => item.leadId === leadId && item.channel === 'email' && item.status === 'sent')) return { action: 'already-contacted', sent: true };
     if (lead.email && isDirectDemandLead(lead)) {
@@ -967,6 +967,18 @@ function conversionPriority(lead: Lead): number {
 
 const TERMINAL_STATUSES = new Set(['Cash Collected', 'Lost']);
 
+function isMarketSignal(lead: Lead): boolean {
+    return /permit signal|dob job filing/i.test(lead.source || '');
+}
+
+function isContactableOpportunity(lead: Lead): boolean {
+    return Boolean(lead.phone || lead.email || sourceUrlFromNotes(lead.notes || ''));
+}
+
+function isVerifiedPipelineLead(lead: Lead): boolean {
+    return !lead.source.toLowerCase().includes('test') && (!isMarketSignal(lead) || isContactableOpportunity(lead));
+}
+
 function recommendedAction(status: string): string {
     const actions: Record<string, string> = {
         'New Lead': 'Contact and qualify opportunity',
@@ -1007,8 +1019,9 @@ function revenuePriority(lead: Lead): number {
 
 async function buildCommandCenter() {
     const [{ items }, genome] = await Promise.all([db.list<Lead>('leads', { limit: 100 }), activeGenome()]);
-    const real = items.filter(lead => !lead.source.toLowerCase().includes('test'));
-    const active = real.filter(lead => !TERMINAL_STATUSES.has(lead.status));
+    const verified = items.filter(isVerifiedPipelineLead);
+    const rawSignals = items.filter(lead => !lead.source.toLowerCase().includes('test') && isMarketSignal(lead) && !isContactableOpportunity(lead));
+    const active = verified.filter(lead => !TERMINAL_STATUSES.has(lead.status));
     const today = new Date().toISOString().slice(0, 10);
     const overdue = active.filter(lead => lead.nextActionDue && lead.nextActionDue < today);
     const missingAction = active.filter(lead => !lead.nextAction.trim());
@@ -1031,6 +1044,8 @@ async function buildCommandCenter() {
     return {
         generatedAt: new Date().toISOString(),
         activeOpportunities: active.length,
+        rawMarketSignals: rawSignals.length,
+        verifiedPipelineLeads: verified.length,
         overdueActions: overdue.length,
         missingActions: missingAction.length,
         pipelineValue,
