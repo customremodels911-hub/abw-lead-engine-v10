@@ -2,27 +2,27 @@
 
 ## Test 1 - Add, plan, retain, and prioritize a real opportunity [sanity]
 Viewport: desktop
-Covers: manual lead intake, POST /api/leads, GET /api/leads, PUT /api/leads/:id/status, PUT /api/leads/:id/operator, database persistence, cash-conversion prioritization, weighted pipeline metrics, estimated-value tracking, next-action persistence, conversion-stage persistence, priority queue
+Covers: manual lead intake, POST /api/leads, GET /api/leads, PUT /api/leads/:id/status, PUT /api/leads/:id/operator, POST /api/contact-center/:leadId/run, GET /api/contact-center, automatic contact routing, owner escalation fallback, database persistence, cash-conversion prioritization, weighted pipeline metrics, estimated-value tracking, next-action persistence, conversion-stage persistence, priority queue
 Description: Verifies a real opportunity can be created, valued, assigned a next action, advanced in stage and retained as an operator-ready pipeline record.
 
 Steps:
 1. Add lead "Priority Test" with phone "7575550101", email "priority@example.com", market "Virginia", project "Electrical", and estimated value 7500
 2. In its Lead Inbox row change status to "Qualified", set Next Action to "Call customer for site visit", and set a future Due date
-3. Refresh the page and inspect Today's Priority Queue, the row, and pipeline statistics
+3. Click "Process Contact" for "Priority Test", refresh the page, and inspect Contact Automation, Today's Priority Queue, the row, and pipeline statistics
 
-Expected: "Priority Test" remains visible with value 7500, status "Qualified", the saved next action and due date, appears in Today's Priority Queue ahead of lower-stage opportunities, and both Active pipeline $ and Weighted pipeline $ reflect its value.
+Expected: "Priority Test" remains visible with value 7500 and the saved plan; contact processing either sends one automatic email when the mail provider is configured or creates one owner-action fallback with the lead contact details without duplicating prior outreach; the lead remains visible in the priority and pipeline metrics.
 
-## Test 2 - Scan public homeowner opportunities
+## Test 2 - Scan public and federal contracting opportunities
 Viewport: desktop
-Covers: direct public opportunity workflow, POST /api/public-opportunities/scan, public Reddit ingestion, lead deduplication, GET /api/leads
-Description: Verifies the operator can trigger a direct scan for public Charlotte, Hampton Roads / Virginia Beach, and New York City project requests and gets a visible result without disturbing the existing pipeline.
+Covers: direct public opportunity workflow, POST /api/public-opportunities/scan, POST /api/government-opportunities/scan, GET /api/integrations/sam/status, GET /api/integrations/batchdata/status, POST /api/contact-now/enrich, BatchData property-signal enrichment, Contact Now queue, GET /api/source-intelligence, GET /api/procurement-advantages, GET /api/self-improvement, POST /api/self-improvement/evolve, GET /api/software-evolution, POST /api/software-evolution/generate, POST /api/software-evolution/:id/decision, POST /api/software-evolution/:id/run-release, AI candidate patch package, static policy validation, isolated shadow score, bounded auto-safe canary, persisted rollback snapshot, promote-or-rollback release state, deployment-ready gate for production code, software upgrade scoring, autonomous-safe versus gated classification, success metrics, rollback criteria, strategy genome persistence, bounded parameter evolution, automatic fitness rollback, daily AI innovation history, Procurement Advantage Engine, NC eVP, Virginia eVA/SWaM, SBA SUBNet, federal prime-contractor directory, USAspending incumbent intelligence, SAM.gov ingestion, Mecklenburg County Accela permit-signal ingestion, adaptive Bayesian/UCB source scheduling, source health diagnostics, small-business and Sources Sought prioritization, NC/VA/NY/NJ filtering, weighted public-intent scoring, recency filtering, cross-source fingerprint deduplication, public Reddit ingestion, NYC DOB job-filing ingestion, Charlotte housing rehabilitation bid ingestion, GET /api/leads
+Description: Verifies the operator can trigger multi-source opportunity discovery and sees explicit SAM.gov readiness without disturbing the existing pipeline.
 
 Steps:
-1. Click "Scan Public Opportunities Now"
-2. Inspect the result notice
-3. Inspect the Lead Inbox
+1. Inspect the BatchData and SAM.gov status badges and click "Scan Public Opportunities Now"
+2. Click "Enrich Now" in Contact Now, then click "Scan SAM.gov Now", click "Evolve Now" in Self-Improvement Kernel, click "Generate Upgrades" in Software Evolution OS, approve one gated proposal if needed, then click "Run Closed Loop" on an approved proposal
+3. Inspect Contact Now, the release stage, baseline/candidate scores, policy result, strategy generation/fitness, Acquisition Intelligence and Lead Inbox
 
-Expected: A notice beginning "Public scan complete:" is visible and any newly matched records appear with a public Reddit source for Charlotte, Hampton Roads / Virginia Beach, or New York City.
+Expected: BatchData shows READY when its token is configured; Contact Now remains visible and shows any available contactable lead with phone/email and property address when present; Enrich Now can retry eligible prior no-match property signals without disturbing the pipeline; the Procurement Advantage Engine visibly ranks official NC, Virginia, federal subcontracting and incumbent-intelligence lanes; Self-Improvement Kernel shows an active strategy genome and generation/fitness data; Software Evolution OS shows evidence-based proposals with priority, risk, autonomy, success metric and rollback criteria; an approved proposal can execute the closed-loop release path and visibly finish as PROMOTED, ROLLED-BACK, DEPLOYMENT-READY or REJECTED-POLICY with baseline/candidate score and policy notes; AUTO-SAFE changes may promote only bounded strategy mutations with rollback snapshots, while gated production-code changes stop at DEPLOYMENT-READY for external validation; the SAM.gov badge shows either "READY" or "NEEDS API KEY"; Acquisition Intelligence remains visible and lead data remains intact.
 
 ## Test 3 - Reject an unnamed manual lead
 Viewport: mobile
@@ -48,14 +48,14 @@ Steps:
 
 Expected: "Thumbtack Test Lead" is visible with source "Thumbtack Test" and "Google Ads Test Lead" is visible with source "Google Ads Test", while neither increases Open real opportunities or pipeline-dollar metrics.
 
-## Test 5 - Show webhook integration readiness
+## Test 5 - Route an unreachable lead to the owner action inbox
 Viewport: desktop
-Covers: GET /api/integrations/thumbtack/status, GET /api/integrations/google-ads/status, secure webhook readiness, Google Ads webhook integration route family
-Description: Verifies the UI reports readiness for both external lead integrations.
+Covers: GET /api/contact-center, POST /api/contact-center/:leadId/run, POST /api/owner-alerts/:id/resolve, phone/email/source fallback routing, duplicate-contact guardrail, owner action completion
+Description: Verifies V10 never silently drops a lead when automatic delivery is unavailable and gives the owner an actionable contact path instead.
 
 Steps:
-1. Open the application
-2. Inspect the Thumbtack and Google Ads status badges
-3. Inspect the lead dashboard
+1. Add a manual lead named "Fallback Contact" with phone "7575550199", no email, market "Virginia", and project "Bathroom"
+2. Click "Process Contact" for "Fallback Contact" and inspect Contact Automation
+3. Use the visible contact action and click "Done"
 
-Expected: Both badges show either "READY" or "NEEDS SECRET", and the dashboard remains usable regardless of secret readiness.
+Expected: Exactly one owner action is shown with "Fallback Contact" and its phone number, call/text controls are available, and clicking "Done" removes the open alert without deleting the lead.
