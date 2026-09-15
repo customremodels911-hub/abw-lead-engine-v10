@@ -1,7 +1,7 @@
 [
   {
     "name": "v10-control-loop",
-    "cron": "*/15 * * * *",
+    "cron": "*/5 * * * *",
     "handler": "v10ControlLoop",
     "timezone": "America/New_York"
   }
