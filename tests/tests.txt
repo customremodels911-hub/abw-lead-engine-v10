@@ -2,27 +2,27 @@
 
 ## Test 1 - Add, plan, retain, and prioritize a real opportunity [sanity]
 Viewport: desktop
-Covers: manual lead intake, POST /api/leads, GET /api/leads, PUT /api/leads/:id/status, PUT /api/leads/:id/operator, POST /api/contact-center/:leadId/run, GET /api/contact-center, automatic contact routing, owner escalation fallback, database persistence, cash-conversion prioritization, weighted pipeline metrics, estimated-value tracking, next-action persistence, conversion-stage persistence, priority queue
+Covers: manual lead intake, POST /api/leads, GET /api/leads, PUT /api/leads/:id/status, PUT /api/leads/:id/operator, database persistence, cash-conversion prioritization, weighted pipeline metrics, estimated-value tracking, next-action persistence, conversion-stage persistence, priority queue
 Description: Verifies a real opportunity can be created, valued, assigned a next action, advanced in stage and retained as an operator-ready pipeline record.
 
 Steps:
 1. Add lead "Priority Test" with phone "7575550101", email "priority@example.com", market "Virginia", project "Electrical", and estimated value 7500
 2. In its Lead Inbox row change status to "Qualified", set Next Action to "Call customer for site visit", and set a future Due date
-3. Click "Process Contact" for "Priority Test", refresh the page, and inspect Contact Automation, Today's Priority Queue, the row, and pipeline statistics
+3. Refresh the page and inspect Today's Priority Queue, the row, and pipeline statistics
 
-Expected: "Priority Test" remains visible with value 7500 and the saved plan; contact processing either sends one automatic email when the mail provider is configured or creates one owner-action fallback with the lead contact details without duplicating prior outreach; the lead remains visible in the priority and pipeline metrics.
+Expected: "Priority Test" remains visible with value 7500, status "Qualified", the saved next action and due date, appears in Today's Priority Queue ahead of lower-stage opportunities, and both Active pipeline $ and Weighted pipeline $ reflect its value.
 
-## Test 2 - Scan public and federal contracting opportunities
+## Test 2 - Scan public homeowner opportunities
 Viewport: desktop
-Covers: direct public opportunity workflow, POST /api/public-opportunities/scan, POST /api/government-opportunities/scan, GET /api/integrations/sam/status, GET /api/integrations/batchdata/status, POST /api/contact-now/enrich, BatchData property-signal enrichment, Contact Now queue, GET /api/source-intelligence, GET /api/procurement-advantages, GET /api/self-improvement, POST /api/self-improvement/evolve, GET /api/software-evolution, POST /api/software-evolution/generate, POST /api/software-evolution/:id/decision, POST /api/software-evolution/:id/run-release, AI candidate patch package, static policy validation, isolated shadow score, bounded auto-safe canary, persisted rollback snapshot, promote-or-rollback release state, deployment-ready gate for production code, software upgrade scoring, autonomous-safe versus gated classification, success metrics, rollback criteria, strategy genome persistence, bounded parameter evolution, automatic fitness rollback, daily AI innovation history, Procurement Advantage Engine, NC eVP, Virginia eVA/SWaM, SBA SUBNet, federal prime-contractor directory, USAspending incumbent intelligence, SAM.gov ingestion, Mecklenburg County Accela permit-signal ingestion, adaptive Bayesian/UCB source scheduling, source health diagnostics, small-business and Sources Sought prioritization, NC/VA/NY/NJ filtering, weighted public-intent scoring, recency filtering, cross-source fingerprint deduplication, public Reddit ingestion, NYC DOB job-filing ingestion, Charlotte housing rehabilitation bid ingestion, GET /api/leads
-Description: Verifies the operator can trigger multi-source opportunity discovery and sees explicit SAM.gov readiness without disturbing the existing pipeline.
+Covers: direct public opportunity workflow, POST /api/public-opportunities/scan, public Reddit ingestion, property-signal enrichment, lead deduplication, GET /api/leads
+Description: Verifies the operator can trigger a direct scan for public Charlotte, Hampton Roads / Virginia Beach, and New York City project requests, run same-pass contact enrichment, and get a visible result without disturbing the existing pipeline.
 
 Steps:
-1. Inspect the BatchData and SAM.gov status badges and click "Scan Public Opportunities Now"
-2. Click "Enrich Now" in Contact Now, then click "Scan SAM.gov Now", click "Evolve Now" in Self-Improvement Kernel, click "Generate Upgrades" in Software Evolution OS, approve one gated proposal if needed, then click "Run Closed Loop" on an approved proposal
-3. Inspect Contact Now, the release stage, baseline/candidate scores, policy result, strategy generation/fitness, Acquisition Intelligence and Lead Inbox
+1. Click "Scan Public Opportunities Now"
+2. Inspect the result notice
+3. Inspect the Lead Inbox
 
-Expected: BatchData shows READY when its token is configured; Contact Now remains visible and shows any available contactable lead with phone/email and property address when present; Enrich Now can retry eligible prior no-match property signals without disturbing the pipeline; the Procurement Advantage Engine visibly ranks official NC, Virginia, federal subcontracting and incumbent-intelligence lanes; Self-Improvement Kernel shows an active strategy genome and generation/fitness data; Software Evolution OS shows evidence-based proposals with priority, risk, autonomy, success metric and rollback criteria; an approved proposal can execute the closed-loop release path and visibly finish as PROMOTED, ROLLED-BACK, DEPLOYMENT-READY or REJECTED-POLICY with baseline/candidate score and policy notes; AUTO-SAFE changes may promote only bounded strategy mutations with rollback snapshots, while gated production-code changes stop at DEPLOYMENT-READY for external validation; the SAM.gov badge shows either "READY" or "NEEDS API KEY"; Acquisition Intelligence remains visible and lead data remains intact. Raw permit and DOB records without a phone, email, or authorized source URL are labeled "RAW SIGNAL" and do not increase verified opportunity or pipeline metrics.
+Expected: A notice beginning "Public scan complete:" is visible with new-opportunity, enriched-contact, and contact-ready counts; any newly matched records appear in the Lead Inbox, and enriched property signals with a matched phone or email are labeled "CONTACT READY — REVIEW".
 
 ## Test 3 - Reject an unnamed manual lead
 Viewport: mobile
@@ -48,14 +48,147 @@ Steps:
 
 Expected: "Thumbtack Test Lead" is visible with source "Thumbtack Test" and "Google Ads Test Lead" is visible with source "Google Ads Test", while neither increases Open real opportunities or pipeline-dollar metrics.
 
-## Test 5 - Route an unreachable lead to the owner action inbox
+## Test 5 - Show webhook integration readiness
 Viewport: desktop
-Covers: GET /api/contact-center, POST /api/contact-center/:leadId/run, POST /api/owner-alerts/:id/resolve, phone/email/source fallback routing, duplicate-contact guardrail, owner action completion
-Description: Verifies V10 never silently drops a lead when automatic delivery is unavailable and gives the owner an actionable contact path instead.
+Covers: GET /api/integrations/thumbtack/status, GET /api/integrations/google-ads/status, secure webhook readiness, Google Ads webhook integration route family
+Description: Verifies the UI reports readiness for both external lead integrations.
 
 Steps:
-1. Add a manual lead named "Fallback Contact" with phone "7575550199", no email, market "Virginia", and project "Bathroom"
-2. Click "Process Contact" for "Fallback Contact" and inspect Contact Automation
-3. Use the visible contact action and click "Done"
+1. Open the application
+2. Inspect the Thumbtack and Google Ads status badges
+3. Inspect the lead dashboard
 
-Expected: Exactly one owner action is shown with "Fallback Contact" and its phone number, call/text controls are available, and clicking "Done" removes the open alert without deleting the lead.
+Expected: Both badges show either "READY" or "NEEDS SECRET", and the dashboard remains usable regardless of secret readiness.
+
+## Test 6 - Promote only enriched contactable property signals [revenue-integrity]
+Viewport: desktop
+Covers: public-source classification, BatchData enrichment promotion, verified pipeline metrics, executive priority queue
+Description: Verifies raw permit, Reddit, DOB, housing-bid, and government records remain reviewable signals, while a property signal successfully enriched with a contact method is promoted into the review-only actionable pipeline.
+
+Steps:
+1. Run the public-opportunity scan
+2. Inspect the dashboard statistics and Lead Inbox proof column
+3. Inspect Today's Priority Queue and verified pipeline dollars
+
+Expected: Unenriched public records remain labeled "SIGNAL — VERIFY" and stay out of verified metrics; a property signal with enrichmentStatus "matched" plus a phone or email is labeled "CONTACT READY — REVIEW", can enter the priority queue, and still requires owner verification before any outreach.
+
+## Test 7 - Require owner approval before customer outreach [safety]
+Viewport: desktop
+Covers: scheduled contact orchestration, manual contact-center action, owner alerts, outbound email gating
+Description: Verifies V10 prepares an owner review alert or draft without automatically messaging a customer.
+
+Steps:
+1. Add a contactable manual opportunity with a valid email
+2. Run contact orchestration through the contact-center endpoint or scheduled control loop
+3. Inspect the lead status, owner alerts, and outreach event history
+
+Expected: An owner-review draft is created, no customer email event is marked sent, and the lead is not automatically advanced to Contacted.
+
+## Test 8 - Create a review-only customer reactivation opportunity
+Viewport: desktop
+Covers: POST /api/reactivation, demand creation, prior-customer reactivation scoring, personalized draft preparation, POST /api/reactivation/:leadId/prepare, owner-review outreach gate
+Description: Verifies a known past customer or old inquiry can be turned into a prioritized reactivation opportunity without automatically contacting them.
+
+Steps:
+1. In Demand Creation / Reactivation add customer "Reactivation Customer" with known email "reactivation@example.com", relationship "Old estimate", project "Bathroom", potential value 12000, and prior conversation "Discussed bathroom two years ago and customer wanted to wait"
+2. Confirm the customer appears in the reactivation list with a score and click "Prepare Personal Follow-Up"
+3. Inspect the notice and Lead Inbox
+
+Expected: The candidate remains visible as a V10 Reactivation opportunity, a personalized follow-up is prepared for owner review, and the notice explicitly says nothing was sent automatically.
+
+## Test 9 - Enforce named contact exclusions [safety]
+Viewport: desktop
+Covers: Susan McMillan, Dennis, Stevens exclusions; pipeline integrity; outreach guardrails
+Description: Verifies excluded contacts cannot enter the active revenue queue or automated contact workflow.
+
+Steps:
+1. Add records named Susan McMillan, Mr. Dennis, and Ms. Stevens
+2. Run the control loop
+3. Inspect dashboard metrics, priority queue, and contact-center history
+
+Expected: Each record is labeled "EXCLUDED", none contributes to verified pipeline or priority, and no outreach or owner-contact action is created for them.
+
+## Test 10 - Promote only actionable customers into the money-now queue
+Viewport: desktop
+Covers: GET /api/actionable-customers, contactability gating, actionability scoring, money-now action assignment, owner-reviewed customer acquisition
+Description: Verifies V10 separates raw leads from customers that have enough intent and a usable contact path to act on immediately.
+
+Steps:
+1. Add a lead named "Actionable Customer" with phone "7045550199", market "Charlotte / Lake Norman", project "Bathroom", estimated value 12000, and notes "Need a contractor this week and ready to hire"
+2. Refresh the dashboard and inspect Actionable Customer Queue
+3. Click "Set Money-Now Action" on that customer and refresh the Lead Inbox
+
+Expected: "Actionable Customer" appears in Actionable Customer Queue with CALL NOW or TEXT NOW, has an actionability score of at least 45, and receives a saved money-now next action without automatically contacting the customer.
+
+## Test 11 - Rank fresh customers before competitors
+Viewport: desktop
+Covers: GET /api/customer-capture-network, Customer Capture Network dashboard, customer-before-competitor scoring, conversion funnel metrics, source economics
+Description: Verifies the new capture layer prioritizes a fresh urgent contactable customer and exposes conversion/source performance without changing the existing lead workflow.
+
+Steps:
+1. Add lead "Fast Buyer" with phone "7045550188", market "Charlotte / Lake Norman", project "Bathroom", estimated value 18000, and notes "Need a contractor today, ready to hire and need an estimate"
+2. Refresh the dashboard and inspect Customer Capture Network and Customer Before Competitor
+3. Inspect Source Economics and the capture metrics
+
+Expected: "Fast Buyer" appears in Customer Before Competitor with a high CBC score and an immediate contact channel; Customer Capture Network shows the actionable customer count, and Source Economics attributes the opportunity to its source.
+
+## Test 12 - Learn feed allocation and rescue dormant opportunities
+Viewport: desktop
+Covers: GET /api/acquisition-mesh, GET /api/opportunity-rescue, adaptive source allocation, dormant opportunity rescue, cross-source identity deduplication, innovation stage
+Description: Verifies V10 exposes learned feed allocation, preserves a single customer record when the same contact reappears, and surfaces valuable opportunities that have gone quiet.
+
+Steps:
+1. Add a contactable opportunity with a phone number and then add another signal using the same phone number but a different source description
+2. Refresh and inspect Adaptive Acquisition Mesh, Feed Allocation, and Opportunity Rescue
+3. Inspect Lead Inbox for the contact and confirm the acquisition strategy cards remain visible
+
+Expected: The repeated contact remains one merged lead record rather than two duplicates; Adaptive Acquisition Mesh displays learned source allocation modes, and eligible stale opportunities appear in Opportunity Rescue with a rescue score and concrete next action.
+
+## Test 13 - Track every real opportunity in the V10 Opportunity Ledger
+Viewport: desktop
+Covers: V10 Opportunity Ledger, lifecycle visibility, source attribution, weighted opportunity value, win/loss tracking, cash attribution
+Description: Verifies the Opportunity Ledger retains non-test opportunities across the full discover-to-cash lifecycle and exposes revenue-learning metrics.
+
+Steps:
+1. Add lead "Ledger Customer" with phone "7045550177", market "Charlotte / Lake Norman", project "Kitchen", estimated value 20000, and notes "Ready for estimate"
+2. Advance the lead from "New Lead" to "Estimate/Bid" and refresh the dashboard
+3. Inspect V10 Opportunity Ledger, then change the lead to "Won/Active" and finally "Cash Collected"
+
+Expected: "Ledger Customer" remains visible in the ledger with its source, market, project, potential value, stage, expected value, next action and outcome; ledger summary metrics update as the lead advances and Cash Collected increases attributed cash.
+
+## Test 14 - Learn from revenue outcomes and rank the next dollar
+Viewport: desktop
+Covers: GET /api/revenue-intelligence, Revenue Intelligence Engine, Money-Now Score, source economics, market intelligence, project intelligence, speed-to-cash, revenue feedback loop
+Description: Verifies V10 recalculates revenue intelligence from actual pipeline outcomes and uses those outcomes to rank active opportunities.
+
+Steps:
+1. Create two verified opportunities with values and contact information, advance one through Cash Collected and the other to Lost, then refresh
+2. Inspect Revenue Intelligence Engine source, market and project tables
+3. Add a new active opportunity sharing the winning source/market/project pattern and inspect the Money-Now Queue
+
+Expected: Revenue Intelligence Engine reflects the recorded win/loss and attributed cash, learned performance metrics change from the outcomes, and the new active opportunity receives a Money-Now Score with a modeled close probability, expected cash value and concrete next action.
+
+## Test 15 - Route upstream opportunities by legal qualification
+Viewport: desktop
+Covers: GET /api/upstream-revenue, Upstream Revenue Qualification Engine, NC licensing guardrails, partner-required routing, certification routing
+Description: Verifies V10 preserves high-value upstream opportunities while preventing unverified licensing from being treated as qualified authority.
+
+Steps:
+1. Open the dashboard and inspect Upstream Revenue Qualification Engine
+2. Review Harris Teeter, Charlotte Airport, Shuffletown and City housing targets
+3. Inspect Qualification Rules and Current Unlock Sequence
+
+Expected: Each target displays a route and next move; NC general-contract work at $40,000+ and independent NC electrical contracting are not marked directly qualified when licenses are unverified, while vendor, below-threshold, certification and qualified-partner paths remain actionable.
+
+## Test 16 - Convert upstream signals into relationship chains
+Viewport: desktop
+Covers: GET /api/relationship-graph, Relationship Graph, capital-event mapping, prime/subcontract entry points, procurement guardrails
+Description: Verifies V10 turns high-value programs into visible relationship chains without inventing bidder identities, awards, licenses or private contacts.
+
+Steps:
+1. Open the dashboard and inspect Relationship Graph
+2. Review Harris Teeter, CLT Concourse A, Shuffletown and City Housing chains
+3. Confirm each chain displays a signal, organizational path, entry point, qualification route and next action
+
+Expected: The four programs appear as relationship chains; CLT preserves procurement-contact restrictions, electrical/GC authority remains qualification-gated, and Shuffletown records the pending plan-holder information request as its next action.
+
