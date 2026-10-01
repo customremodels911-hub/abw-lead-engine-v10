@@ -1,8 +1,9 @@
 [
   {
-    "name": "v10-control-loop",
-    "cron": "*/15 * * * *",
+    "name": "v10-control-loop-v2",
+    "cron": "*/5 * * * *",
     "handler": "v10ControlLoop",
-    "timezone": "America/New_York"
+    "timezone": "America/New_York",
+    "payload": { "resiliencePatch": 2 }
   }
 ]
