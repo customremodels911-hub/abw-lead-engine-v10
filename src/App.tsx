@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react';
-import { api } from '@appdeploy/client';
+import { api } from './api';
 
 type Lead = { id: string; name: string; phone?: string; email?: string; market?: string; project?: string; source?: string; status?: string; score?: number; createdAt?: string; notes?: string; estimatedValue?: number; nextAction?: string; nextActionDue?: string; lastTouch?: string; statusUpdatedAt?: string; enrichmentStatus?: string; complianceReviewRequired?: boolean; relationship?: string; reactivationReason?: string; reactivationScore?: number };
 const PIPELINE_STAGES = ['New Lead', 'Contacted', 'Responded', 'Qualified', 'Estimate/Bid', 'Deposit Due', 'Won/Active', 'Cash Collected', 'Hold', 'Lost'];
