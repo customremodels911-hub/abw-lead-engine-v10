@@ -1,4 +1,4 @@
-import { removeSubscriptionsByConnection } from './realtime-subscribers';
+import { removeSubscriptionsByConnection } from "./realtime-subscribers";
 
 export const realtime = async (event: any) => {
     let msg: any = {};
