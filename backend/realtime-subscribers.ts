@@ -1,6 +1,6 @@
-import { db, ws, json, error } from '@appdeploy/sdk';
+import { db, ws, json, error } from "@appdeploy/sdk";
 
-const SUBSCRIPTIONS_TABLE = 'entity_subscriptions';
+const SUBSCRIPTIONS_TABLE = "entity_subscriptions";
 
 export type SubscriptionRecord = {
     id: string;
@@ -78,7 +78,7 @@ export async function notifySubscribers(
 
     await ws.send(targetConnectionIds, {
         v: 1,
-        type: 'entity.update',
+        type: "entity.update",
         payload: {
             entity_type: entityType,
             entity_id: entityId,
@@ -88,31 +88,31 @@ export async function notifySubscribers(
 }
 
 export const realtimeSubscriptionRoutes = {
-    'POST /api/subscriptions': [
+    "POST /api/subscriptions": [
         async ({ body }) => {
             const { entity_type, entity_id, connection_id } = (body || {}) as Record<
                 string,
                 string
             >;
             if (!entity_type || !entity_id || !connection_id) {
-                return error('entity_type, entity_id, connection_id are required');
+                return error("entity_type, entity_id, connection_id are required");
             }
             await addSubscription(entity_type, entity_id, connection_id);
             return json({ ok: true });
         },
     ],
 
-    'POST /api/subscriptions/remove': [
+    "POST /api/subscriptions/remove": [
         async ({ body }) => {
             const { entity_type, entity_id, connection_id } = (body || {}) as Record<
                 string,
                 string
             >;
             if (!entity_type || !entity_id || !connection_id) {
-                return error('entity_type, entity_id, connection_id are required');
+                return error("entity_type, entity_id, connection_id are required");
             }
             await removeSubscriptions(entity_type, entity_id, connection_id);
             return json({ ok: true });
         },
     ],
-};
+}
