@@ -8,6 +8,28 @@ type RouteResult = { __v10Result: true; statusCode: number; data: any };
 let pool: Pool | null = null;
 let schemaReady: Promise<void> | null = null;
 
+type MemoryRow = { data: DbRecord; createdAt: number; updatedAt: number };
+const memoryCollections = new Map<string, Map<string, MemoryRow>>();
+let memoryFallbackWarned = false;
+
+function usingMemoryFallback() {
+  const fallback = !process.env.DATABASE_URL;
+  if (fallback && !memoryFallbackWarned) {
+    console.warn('DATABASE_URL is not configured; V10 is using temporary in-memory storage until a persistent database is attached.');
+    memoryFallbackWarned = true;
+  }
+  return fallback;
+}
+
+function memoryCollection(collection: string) {
+  let store = memoryCollections.get(collection);
+  if (!store) {
+    store = new Map<string, MemoryRow>();
+    memoryCollections.set(collection, store);
+  }
+  return store;
+}
+
 function getPool(): Pool {
   if (pool) return pool;
   const connectionString = process.env.DATABASE_URL;
@@ -33,19 +55,44 @@ async function ensureSchema() {
 
 export const db = {
   async list<T extends DbRecord>(collection: string, options: { limit?: number } = {}) {
-    await ensureSchema();
     const limit = Math.max(1, Math.min(Number(options.limit || 100), 500));
+    if (usingMemoryFallback()) {
+      const rows = Array.from(memoryCollection(collection).entries())
+        .sort((a, b) => b[1].createdAt - a[1].createdAt)
+        .slice(0, limit)
+        .map(([id, row]) => ({ id, ...(row.data || {}) }));
+      return { items: rows as Array<T & { id: string }> };
+    }
+    await ensureSchema();
     const result = await getPool().query('SELECT id, data FROM v10_records WHERE collection = $1 ORDER BY created_at DESC LIMIT $2', [collection, limit]);
     return { items: result.rows.map(row => ({ id: row.id, ...(row.data || {}) })) as Array<T & { id: string }> };
   },
   async get<T extends DbRecord>(collection: string, ids: string[]) {
-    await ensureSchema();
     if (!ids.length) return [] as Array<T & { id: string }>;
+    if (usingMemoryFallback()) {
+      const store = memoryCollection(collection);
+      return ids.map(id => {
+        const row = store.get(id);
+        return row ? ({ id, ...(row.data || {}) } as T & { id: string }) : undefined;
+      }).filter(Boolean) as Array<T & { id: string }>;
+    }
+    await ensureSchema();
     const result = await getPool().query('SELECT id, data FROM v10_records WHERE collection = $1 AND id = ANY($2::text[])', [collection, ids]);
     const byId = new Map(result.rows.map(row => [row.id, { id: row.id, ...(row.data || {}) }]));
     return ids.map(id => byId.get(id)).filter(Boolean) as Array<T & { id: string }>;
   },
   async add(collection: string, records: DbRecord[]) {
+    if (usingMemoryFallback()) {
+      const store = memoryCollection(collection);
+      const ids: string[] = [];
+      const now = Date.now();
+      for (const record of records) {
+        const id = randomUUID();
+        store.set(id, { data: { ...record }, createdAt: now, updatedAt: now });
+        ids.push(id);
+      }
+      return ids;
+    }
     await ensureSchema();
     const ids: string[] = [];
     for (const record of records) {
@@ -56,6 +103,17 @@ export const db = {
     return ids;
   },
   async update(collection: string, updates: Array<{ id: string; record: DbRecord }>) {
+    if (usingMemoryFallback()) {
+      const store = memoryCollection(collection);
+      const ids: string[] = [];
+      for (const item of updates) {
+        const existing = store.get(item.id);
+        if (!existing) continue;
+        store.set(item.id, { data: { ...item.record }, createdAt: existing.createdAt, updatedAt: Date.now() });
+        ids.push(item.id);
+      }
+      return ids;
+    }
     await ensureSchema();
     const ids: string[] = [];
     for (const item of updates) {
@@ -65,8 +123,13 @@ export const db = {
     return ids;
   },
   async delete(collection: string, ids: string[]) {
-    await ensureSchema();
     if (!ids.length) return [];
+    if (usingMemoryFallback()) {
+      const store = memoryCollection(collection);
+      for (const id of ids) store.delete(id);
+      return ids;
+    }
+    await ensureSchema();
     await getPool().query('DELETE FROM v10_records WHERE collection = $1 AND id = ANY($2::text[])', [collection, ids]);
     return ids;
   }
