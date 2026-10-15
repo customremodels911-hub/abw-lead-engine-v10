@@ -7,6 +7,18 @@ const app = express();
 app.disable('x-powered-by');
 app.use(express.json({ limit: '2mb', verify: (req: any, _res, buf) => { req.rawBody = buf.toString('utf8'); } }));
 
+// Keep customer identities, phone numbers, and revenue records private.
+// This must be configured in the Render environment, never committed to GitHub.
+app.use('/api', (req, res, next) => {
+  if (req.path === '/control-loop') return next(); // Separate server-to-server token.
+  const expected = process.env.V10_ACCESS_KEY;
+  if (!expected) return res.status(503).json({ error: 'Private dashboard access has not been configured' });
+  const provided = req.header('x-v10-access-key') || '';
+  if (provided !== expected) return res.status(401).json({ error: 'Invalid dashboard access key' });
+  next();
+});
+app.get('/healthz', (_req, res) => res.json({ status: 'ok', service: 'ABW Lead Engine V10' }));
+
 app.post('/api/control-loop', async (req, res) => {
   const expected = process.env.CONTROL_LOOP_TOKEN;
   const supplied = req.header('x-v10-control-token') || (req.header('authorization') || '').replace(/^Bearer\s+/i, '');
