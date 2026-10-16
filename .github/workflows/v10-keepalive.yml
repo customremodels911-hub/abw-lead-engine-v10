@@ -1,0 +1,27 @@
+name: V10 availability heartbeat
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Request V10 health check and allow cold start
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://abw-lead-engine-v10-free.onrender.com/healthz"
+          for attempt in 1 2 3 4; do
+            body="$(mktemp)"
+            status="$(curl --connect-timeout 15 --max-time 45 -sS -o "$body" -w '%{http_code}' "$url" || true)"
+            if [[ "$status" == "200" ]] && grep -q '"status":"ok"' "$body"; then
+              echo "V10 application healthy."
+              exit 0
+            fi
+            echo "Attempt $attempt: HTTP $status. Waiting for Render startup."
+            sleep 35
+          done
+          echo "::error::V10 health endpoint remained unhealthy after retries"
+          exit 1
