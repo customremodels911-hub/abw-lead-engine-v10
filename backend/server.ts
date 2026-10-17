@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handler, v10ControlLoop } from './index';
 import { db } from './runtime';
+import { inspectV10Database, exportV10LogicalBackup } from './database-preservation';
 
 const app = express();
 app.disable('x-powered-by');
@@ -42,6 +43,35 @@ app.get('/api/ops-health', async (_req, res) => {
     v10AccessKeyConfigured: Boolean(process.env.V10_ACCESS_KEY),
     web: 'online', staleAfterMinutes: 120,
     caution: 'Controller completion does not prove each external source succeeded; inspect logs and lead changes' });
+});
+
+app.get('/api/database/status', async (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  try {
+    return res.json(await inspectV10Database());
+  } catch (err) {
+    console.error('Database status verification failed', err instanceof Error ? err.message : 'unknown');
+    return res.status(503).json({ configured: Boolean(process.env.DATABASE_URL), persistent: false,
+      reachable: false, warning: 'Cannot verify persistent V10 data; do not assume data is saved.' });
+  }
+});
+
+app.get('/api/database/export', async (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store, private');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  try {
+    const backup = await exportV10LogicalBackup();
+    const date = new Date().toISOString().slice(0, 10);
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.setHeader('Content-Disposition', `attachment; filename="v10-postgres-backup-${date}.json"`);
+    res.setHeader('X-V10-Backup-Records', String(backup.recordCount));
+    res.setHeader('X-V10-Backup-SHA256', backup.sha256);
+    return res.status(200).send(backup.payload);
+  } catch (err) {
+    const reason = err instanceof Error ? err.message : 'Backup failed';
+    console.error('V10 authenticated backup export failed', reason);
+    return res.status(503).json({ error: 'Database export unavailable', reason, exported: false });
+  }
 });
 
 app.post('/api/control-loop', async (req, res) => {
