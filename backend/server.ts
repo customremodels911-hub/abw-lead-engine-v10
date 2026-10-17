@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { handler, v10ControlLoop } from './index';
+import { db } from './runtime';
 
 const app = express();
 app.disable('x-powered-by');
@@ -17,19 +18,56 @@ app.use('/api', (req, res, next) => {
   if (provided !== expected) return res.status(401).json({ error: 'Invalid dashboard access key' });
   next();
 });
-app.get('/healthz', (_req, res) => res.json({ status: 'ok', service: 'ABW Lead Engine V10' }));
+const controlState = async () => {
+  if (!process.env.DATABASE_URL) return { datastore: 'not-configured', lastRun: null };
+  try {
+    const { items } = await db.list<{ finishedAt: string; status: string; durationMs: number }>('control_loop_health', { limit: 1 });
+    return { datastore: 'connected', lastRun: items[0] || null };
+  } catch {
+    return { datastore: 'unavailable', lastRun: null };
+  }
+};
+let loopInProgress = false;
+app.get('/healthz', async (_req, res) => {
+  const state = await controlState();
+  const recent = state.lastRun?.finishedAt && Date.now() - Date.parse(state.lastRun.finishedAt) < 120 * 60 * 1000;
+  res.json({ service: 'ABW Lead Engine V10', web: 'online', datastore: state.datastore,
+    automation: !state.lastRun ? 'unverified' : recent ? 'recent-run' : 'stale',
+    lastRunAt: state.lastRun?.finishedAt || null,
+    warning: 'Web service availability does not prove automatic lead scanning or external integration delivery' });
+});
+app.get('/api/ops-health', async (_req, res) => {
+  const state = await controlState();
+  res.json({ ...state, controlLoopTokenConfigured: Boolean(process.env.CONTROL_LOOP_TOKEN),
+    v10AccessKeyConfigured: Boolean(process.env.V10_ACCESS_KEY),
+    web: 'online', staleAfterMinutes: 120,
+    caution: 'Controller completion does not prove each external source succeeded; inspect logs and lead changes' });
+});
 
 app.post('/api/control-loop', async (req, res) => {
   const expected = process.env.CONTROL_LOOP_TOKEN;
   const supplied = req.header('x-v10-control-token') || (req.header('authorization') || '').replace(/^Bearer\s+/i, '');
   if (!expected) return res.status(503).json({ error: 'CONTROL_LOOP_TOKEN is not configured' });
   if (supplied !== expected) return res.status(401).json({ error: 'Unauthorized' });
+  if (loopInProgress) return res.status(409).json({ error: 'Control loop already running' });
+  loopInProgress = true;
+  const started = Date.now();
   try {
     const result = await v10ControlLoop();
-    return res.status(result?.statusCode || 200).json({ ok: true });
+    const health = { finishedAt: new Date().toISOString(), durationMs: Date.now() - started,
+      status: 'controller-returned; inspect per-source logs', httpStatus: result?.statusCode || 200 };
+    try {
+      const { items } = await db.list('control_loop_health', { limit: 1 });
+      if (items.length) await db.update('control_loop_health', [{ id: items[0].id, record: health }]);
+      else await db.add('control_loop_health', [health]);
+    } catch (auditError) { console.error('Unable to persist control loop status', auditError); }
+    return res.status(result?.statusCode || 200).json({ ok: true, runRecorded: health.finishedAt,
+      warning: 'Check per-stage logs; this controller may continue after individual stages fail' });
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: err instanceof Error ? err.message : 'Control loop failed' });
+    console.error('V10 control loop failed', err);
+    return res.status(500).json({ error: 'Control loop failed; see protected application logs' });
+  } finally {
+    loopInProgress = false;
   }
 });
 
