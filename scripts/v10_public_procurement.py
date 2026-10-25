@@ -46,8 +46,18 @@ def normalize(row: dict, today: dt.date) -> dict | None:
         due = dt.date.fromisoformat(due_raw)
     except ValueError:
         return None
-    if due < today:
+    # The source occasionally contains placeholders like years 2099 or 9999.
+    # Exclude such dates instead of calling ancient notices open opportunities.
+    if due < today or due > today + dt.timedelta(days=365):
         return None
+    posted_raw = str(row.get('start_date') or '')[:10]
+    if posted_raw:
+        try:
+            posted = dt.date.fromisoformat(posted_raw)
+            if posted < today - dt.timedelta(days=730):
+                return None
+        except ValueError:
+            return None
     details = " ".join(str(row.get(k) or "") for k in
                        ("short_title", "category_description", "additional_description_1"))
     priority = score(details)
@@ -105,6 +115,10 @@ def test() -> None:
     assert lead and lead["id"] == "42" and lead["score"] >= 4
     assert normalize({"short_title": "Electrical repairs",
         "due_date": "2026-10-01", "request_id": "43"}, today) is None
+    assert normalize({"short_title": "Electrical repairs",
+        "due_date": "9999-12-31", "request_id": "49"}, today) is None
+    assert normalize({"short_title": "Electrical repairs",
+        "due_date": "2026-11-08", "start_date": "2018-01-01", "request_id": "50"}, today) is None
     assert normalize({"short_title": "Office supplies",
         "due_date": "2026-11-08", "request_id": "44"}, today) is None
     assert normalize({"short_title": "Notice of award: electrical work",
