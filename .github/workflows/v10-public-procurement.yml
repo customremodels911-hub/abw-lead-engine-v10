@@ -1,0 +1,38 @@
+name: V10 independent public procurement scan
+on:
+  schedule:
+    - cron: '17 3,11,15,19,23 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: v10-public-procurement
+  cancel-in-progress: false
+jobs:
+  nyc-public-bids:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate relevance and deadline filters
+        run: python scripts/v10_public_procurement.py --self-test
+      - name: Collect official NYC public solicitations
+        run: python scripts/v10_public_procurement.py
+      - name: Save public opportunities without a paid database
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "V10 Opportunity Bot"
+          git config user.email "v10-bot@users.noreply.github.com"
+          git add data/v10_public_bids.json
+          if git diff --cached --quiet; then
+            echo "No new public opportunity snapshot."
+            exit 0
+          fi
+          git commit -m "Update V10 public NYC procurement snapshot"
+          git push
