@@ -3,6 +3,10 @@ on:
   schedule:
     - cron: '17 3,11,15,19,23 * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/v10-public-procurement.yml'
+      - 'scripts/v10_public_procurement.py'
 permissions:
   contents: write
 concurrency:
