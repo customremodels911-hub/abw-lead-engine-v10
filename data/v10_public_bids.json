@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-26T08:57:08+00:00",
+  "generated_at_utc": "2026-10-26T17:23:52+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-10-26T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 58,
-  "new_since_previous_run": 0,
+  "count": 60,
+  "new_since_previous_run": 2,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -331,6 +331,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "3363",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261014034",
+      "title": "Requirement Contract for Installation of V/C Floor Tile in Apartments- Development Name, Located Brooklyn Neighborhood (BK08) and (BK09), Brooklyn.",
+      "agency": "Housing Authority",
+      "due_date": "2026-11-18",
+      "score": 8,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -721,6 +734,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82626B0015",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261019013",
+      "title": "84127P0002-TD/CSS for Meridian Road over Stream North of Long Island Expressway, Borough of Queens",
+      "agency": "Transportation",
+      "due_date": "2026-12-04",
+      "score": 4,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84127P0002",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
