@@ -1,11 +1,11 @@
 {
-  "generated_at_utc": "2026-10-27T22:57:20+00:00",
+  "generated_at_utc": "2026-10-28T02:16:26+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-10-27T00%3A00%3A00%27&%24order=due_date+ASC",
+  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-10-28T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 60,
+  "count": 57,
   "new_since_previous_run": 0,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
@@ -296,19 +296,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260929016",
-      "title": "82627B0018-BPS-HELIMNT: SERVICE, REPAIR AND MAINTENANCE OF AGUSTAWESTLAND A119 AND A119MKLL HELICOPTERS",
-      "agency": "Environmental Protection",
-      "due_date": "2026-10-27",
-      "score": 8,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "82627B0018",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20260924018",
       "title": "IDIQ General Plumbing Services at Various NYCHA Developments Citywide with Borough Focus (BX, BK, MN, AND QSI)",
       "agency": "Housing Authority",
@@ -526,32 +513,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "PQL000152",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260909021",
-      "title": "Bid Extension: SMPD Materials Plumbing Supplies such as pipes, elbows etc.",
-      "agency": "Housing Authority",
-      "due_date": "2026-10-27",
-      "score": 4,
-      "category": "Goods",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "528362",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260901026",
-      "title": "Correction: RFP 523138 - Construction Management Services",
-      "agency": "Housing Authority",
-      "due_date": "2026-10-27",
-      "score": 4,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "523138",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
