@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-10-30T10:02:19+00:00",
+  "generated_at_utc": "2026-10-30T17:01:32+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-10-30T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 57,
-  "new_since_previous_run": 0,
+  "count": 62,
+  "new_since_previous_run": 5,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -296,6 +296,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20260706027",
+      "title": "Bid Extension: 82626B0055-BEDC-C547B: SHAFT EQUPMENT INSTALLATION & RETROFIT TUNNEL ACTIVATION",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-22",
+      "score": 9,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82626B0055",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260924018",
       "title": "IDIQ General Plumbing Services at Various NYCHA Developments Citywide with Borough Focus (BX, BK, MN, AND QSI)",
       "agency": "Housing Authority",
@@ -504,6 +517,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261023001",
+      "title": "SBH-02201602-Power and Cooling Upgrade",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-17",
+      "score": 6,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "SBH-02201602-Power-C",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260413031",
       "title": "Small Building Projects - General Construction",
       "agency": "Parks and Recreation",
@@ -673,6 +699,32 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261026019",
+      "title": "HWCB27KR: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
+      "agency": "Design and Construction",
+      "due_date": "2026-11-23",
+      "score": 4,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "85027B0026",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261026020",
+      "title": "HWCB27QXM: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
+      "agency": "Design and Construction",
+      "due_date": "2026-11-23",
+      "score": 4,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "85027B0025",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20261001018",
       "title": "24202204: NCB OTxHU Main Construction",
       "agency": "NYC Health + Hospitals",
@@ -721,6 +773,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "CSI-CUCF-11-26",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261023015",
+      "title": "Queensboro Bridge Ramps Transfer of Development Rights",
+      "agency": "Economic Development Corporation",
+      "due_date": "2027-01-04",
+      "score": 4,
+      "category": "Goods and Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "11861",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
