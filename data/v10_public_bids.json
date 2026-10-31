@@ -1,11 +1,11 @@
 {
-  "generated_at_utc": "2026-10-30T22:58:55+00:00",
+  "generated_at_utc": "2026-10-31T02:24:17+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-10-30T00%3A00%3A00%27&%24order=due_date+ASC",
+  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-10-31T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 62,
+  "count": 59,
   "new_since_previous_run": 0,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
@@ -166,19 +166,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260924016",
-      "title": "07227B0002-On-Call Mechanical Equipment and Systems",
-      "agency": "Correction",
-      "due_date": "2026-10-30",
-      "score": 10,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "07227B0002",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261006020",
       "title": "82626B0051-MFP-2025 Preventative Maintenance, Inspection, Testing and Repair of Fire Protection Systems and Fire Alarm Systems at Various DEP Facilities",
       "agency": "Environmental Protection",
@@ -214,19 +201,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82627B0022",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260921014",
-      "title": "Renovation, operation & maintenance of a carousel, snack bar & family amusement venue at Forest Park & the renovation, operation & maintenance of the carousel, mobile food & souvenir units,& children's amusement rides at",
-      "agency": "Parks and Recreation",
-      "due_date": "2026-10-30",
-      "score": 9,
-      "category": "Goods and Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "Q15-Q99-SB-C-CL-2026",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -409,19 +383,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82726B0005",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260911021",
-      "title": "NYC Mass Timber Studio: Accelerating Housing Development RFA",
-      "agency": "Economic Development Corporation",
-      "due_date": "2026-10-30",
-      "score": 6,
-      "category": "Goods and Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "10474",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
