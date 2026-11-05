@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-05T10:57:12+00:00",
+  "generated_at_utc": "2026-11-05T18:45:25+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-05T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 54,
-  "new_since_previous_run": 0,
+  "count": 64,
+  "new_since_previous_run": 10,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -62,6 +62,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20260625055",
+      "title": "Bid Extension: Elmhurst Hospital, Entryway Renovation",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-11-18",
+      "score": 13,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "33202207",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20261013013",
       "title": "22202201- NYC H+H - Gotham/ East New York - ADA Restroom, Office Storage and Lounge Renovation",
       "agency": "NYC Health + Hospitals",
@@ -88,19 +101,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260821028",
-      "title": "Bid Extension: CSB 161 ST Elevator Modernization Rebid",
-      "agency": "Citywide Administrative Services",
-      "due_date": "2026-11-18",
-      "score": 12,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85626B0010",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20260514019",
       "title": "Bid Extension: 85624B0007-CSB 360 Adams ADA Improvements Construction",
       "agency": "Citywide Administrative Services",
@@ -110,6 +110,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85624B0007",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20260821028",
+      "title": "Bid Extension: CSB 161 ST Elevator Modernization Rebid",
+      "agency": "Citywide Administrative Services",
+      "due_date": "2026-12-03",
+      "score": 12,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "85626B0010",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -136,6 +149,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "M104-DR-2026",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261028026",
+      "title": "Correction: 82627B0015-BEDC-KENS-EAST-3 KEC Buildings",
+      "agency": "Environmental Protection",
+      "due_date": "2027-02-03",
+      "score": 11,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0015",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -231,6 +257,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261027027",
+      "title": "82627B0010-BEPA: GI-CONS-7: Installation of Green Infrastructure at Various NYC Parks in Queens and The Bronx",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-08",
+      "score": 9,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0010",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260820037",
       "title": "Bid Extension: 85625B0011-CSB General Construction RC Man. & Bronx",
       "agency": "Citywide Administrative Services",
@@ -240,6 +279,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85625B0011",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261027028",
+      "title": "82627B0013-BEPA: GI-CONS-9: Installation of green infrastructure along North and South Conduit in Queens",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-10",
+      "score": 9,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0013",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -257,6 +309,32 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261027025",
+      "title": "82627B0009-BEPA: GI-CONS-4: Installation of green infrastructure at various NYC Parks in Queens and The Bronx",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-15",
+      "score": 9,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0009",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261028022",
+      "title": "82627B0012-BEPA: GI-CONS-8: Installation of green infrastructure at various NYC Parks in Queens",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-18",
+      "score": 9,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0012",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260706027",
       "title": "Bid Extension: 82626B0055-BEDC-C547B: SHAFT EQUPMENT INSTALLATION & RETROFIT TUNNEL ACTIVATION",
       "agency": "Environmental Protection",
@@ -266,6 +344,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82626B0055",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261027026",
+      "title": "82627B0011-BEPA: GI-CONS-6: Installation of green infrastructure at various NYC Parks in Queens and Brooklyn",
+      "agency": "Environmental Protection",
+      "due_date": "2027-01-06",
+      "score": 9,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0011",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -505,7 +596,7 @@
     },
     {
       "id": "20260902028",
-      "title": "Harlem Hospital_Ron Brown Cooling Tower Replacement",
+      "title": "Correction: Harlem Hospital_Ron Brown Cooling Tower Replacement",
       "agency": "NYC Health + Hospitals",
       "due_date": "2026-11-05",
       "score": 4,
@@ -634,6 +725,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261026031",
+      "title": "BG-426M Brooklyn Street Tree Planting FY27 - CBs 6, 13",
+      "agency": "Parks and Recreation",
+      "due_date": "2026-11-27",
+      "score": 4,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84627B0014",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20261014020",
       "title": "82626B0015-BWT-TI-181 Replacement of the Multi-Rake Climber Screen & Degritting System Installation",
       "agency": "Environmental Protection",
@@ -643,6 +747,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82626B0015",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20260825035",
+      "title": "Bid Extension: Loading Dock + Morgue at South Brooklyn Health, Brooklyn, NY",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-03",
+      "score": 4,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "26202503",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -669,6 +786,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "CSI-CUCF-11-26",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261028024",
+      "title": "82627B0020-BEDC-CAT-475 High Level Outlet Install Gilboa Dam and Crest Gate Removal",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-29",
+      "score": 4,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0020",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
