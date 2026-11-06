@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-06T10:54:02+00:00",
+  "generated_at_utc": "2026-11-06T17:58:12+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-06T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 62,
-  "new_since_previous_run": 0,
+  "count": 65,
+  "new_since_previous_run": 3,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -58,6 +58,32 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85624B0012",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261102019",
+      "title": "CT Scanner Suite Renovation - GC & MISC MEP Trades",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-16",
+      "score": 15,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "37202341",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261102020",
+      "title": "Metropolitan - Nuclear Camera Suite Renovation GC Work and MISC MEP Trades",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-16",
+      "score": 15,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "37202041",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -123,6 +149,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85626B0010",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261023014",
+      "title": "SMD Services IDIQ Contract for MAINTENANCE, SERVICE AND REPAIR OF EMERGENCY BACK-UP GENERATORS, AT VARIOUS NYCHA DEVELOPMENTS, CITYWIDE",
+      "agency": "Housing Authority",
+      "due_date": "2026-12-10",
+      "score": 12,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "528491",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -297,7 +336,7 @@
     },
     {
       "id": "20261027010",
-      "title": "Construction Management Services for the Rehabilitation of the Wallkill Blow-off Chamber",
+      "title": "Correction: Construction Management Services for the Rehabilitation of the Wallkill Blow-off Chamber",
       "agency": "Environmental Protection",
       "due_date": "2026-12-10",
       "score": 9,
@@ -374,19 +413,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261014034",
-      "title": "Requirement Contract for Installation of V/C Floor Tile in Apartments- Development Name, Located Brooklyn Neighborhood (BK08) and (BK09), Brooklyn.",
-      "agency": "Housing Authority",
-      "due_date": "2026-11-18",
-      "score": 8,
-      "category": "Construction Related Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20260930001",
       "title": "Correction: Upgrade IDF MDF Rooms",
       "agency": "NYC Health + Hospitals",
@@ -400,8 +426,8 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261019033",
-      "title": "Requirement Contract for Installation of V/C Floor Tile in Apartments, Development Specific pursuant to RFQ#s: 528467 to 528474 Located in Manhattan Neighborhood (MN06), and (MN07)",
+      "id": "20261014034",
+      "title": "Bid Extension: Requirement Contract for Installation of V/C Floor Tile in Apartments- Development Name, Located Brooklyn Neighborhood (BK08) and (BK09), Brooklyn.",
       "agency": "Housing Authority",
       "due_date": "2026-11-20",
       "score": 8,
@@ -413,10 +439,23 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261020018",
-      "title": "Correction: SMD-Requirement Contract for Installation of V/C Floor Tile in Apartments- Development Name, Located in Manhattan Neighborhood (MN08), and (MN09), Manhattan.",
+      "id": "20261019033",
+      "title": "Bid Extension: Requirement Contract for Installation of V/C Floor Tile in Apartments, Development Specific pursuant to RFQ#s: 528467 to 528474 Located in Manhattan Neighborhood (MN06), and (MN07)",
       "agency": "Housing Authority",
-      "due_date": "2026-11-25",
+      "due_date": "2026-11-23",
+      "score": 8,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261020018",
+      "title": "Bid Extension: SMD-Requirement Contract for Installation of V/C Floor Tile in Apartments- Development Name, Located in Manhattan Neighborhood (MN08), and (MN09), Manhattan.",
+      "agency": "Housing Authority",
+      "due_date": "2026-11-27",
       "score": 8,
       "category": "Construction/Construction Services",
       "source": "NYC Open Data · Current Solicitations",
@@ -492,7 +531,7 @@
     },
     {
       "id": "20260901018",
-      "title": "Leveraging Ground-Scanning Technology to Build Understanding of Underground Infrastructure in New York City",
+      "title": "Correction: Leveraging Ground-Scanning Technology to Build Understanding of Underground Infrastructure in New York City",
       "agency": "Information Technology and Telecommunications",
       "due_date": "2026-11-16",
       "score": 6,
@@ -686,19 +725,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261001018",
-      "title": "24202204: NCB OTxHU Main Construction",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-11-25",
-      "score": 4,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "NCB-24202204-Main",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261026031",
       "title": "BG-426M Brooklyn Street Tree Planting FY27 - CBs 6, 13",
       "agency": "Parks and Recreation",
@@ -747,6 +773,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "84127P0002",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261001018",
+      "title": "Bid Extension: 24202204: NCB OTxHU Main Construction",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-17",
+      "score": 4,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "NCB-24202204-Main",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
