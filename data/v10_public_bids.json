@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-12T11:13:05+00:00",
+  "generated_at_utc": "2026-11-12T18:57:20+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-12T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 60,
-  "new_since_previous_run": 0,
+  "count": 64,
+  "new_since_previous_run": 4,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -19,6 +19,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82626B0054",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261104013",
+      "title": "SMD_A&CM_RFQ #518113 - Elevator Rehabilitation and Maintenance for Haber Houses, Coney Island Site 8 and O\u001aDwyer Gardens",
+      "agency": "Housing Authority",
+      "due_date": "2026-12-16",
+      "score": 24,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "518113",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -426,6 +439,32 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261105023",
+      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
+      "agency": "Transportation",
+      "due_date": "2026-12-16",
+      "score": 8,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84126B0029",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261105022",
+      "title": "When & Where Structural and Miscellaneous Repairs - Manhattan and Queens",
+      "agency": "Transportation",
+      "due_date": "2026-12-16",
+      "score": 8,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84126B0028",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260713031",
       "title": "Garage Demolition and Replacement",
       "agency": "Sanitation",
@@ -695,6 +734,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85727B0033",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261104019",
+      "title": "82627B0019-BEDC-CSO-FC-DF Flushing Creek CSO Disinfection Project",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-16",
+      "score": 4,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0019",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
