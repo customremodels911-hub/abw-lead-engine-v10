@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-12T18:57:20+00:00",
+  "generated_at_utc": "2026-11-13T10:59:49+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-12T00%3A00%3A00%27&%24order=due_date+ASC",
+  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-13T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 64,
-  "new_since_previous_run": 4,
+  "count": 62,
+  "new_since_previous_run": 0,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -478,19 +478,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260917021",
-      "title": "NYC H+H/Queens - Dialysis Space Construction",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-11-12",
-      "score": 6,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "34202301_Queens Dial",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261002034",
       "title": "On-Call Environmental Services",
       "agency": "Brooklyn Navy Yard Development Corp.",
@@ -608,19 +595,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260924021",
-      "title": "Correction: Community Pharmacy at Lincoln Hospital - GC Work (MISC) MEP Trades",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-11-12",
-      "score": 4,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "25202504",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261009019",
       "title": "85727B0030-Auto Body and Chassis Repair Services for Queens East (RE-AD)",
       "agency": "Citywide Administrative Services",
@@ -634,19 +608,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261026019",
-      "title": "HWCB27KR: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
-      "agency": "Design and Construction",
-      "due_date": "2026-11-23",
-      "score": 4,
-      "category": "Construction Related Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85027B0026",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261026020",
       "title": "HWCB27QXM: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
       "agency": "Design and Construction",
@@ -656,6 +617,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85027B0025",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261026019",
+      "title": "HWCB27KR: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
+      "agency": "Design and Construction",
+      "due_date": "2026-11-23",
+      "score": 4,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "85027B0026",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
