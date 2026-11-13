@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-13T10:59:49+00:00",
+  "generated_at_utc": "2026-11-13T18:31:40+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-13T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 62,
-  "new_since_previous_run": 0,
+  "count": 66,
+  "new_since_previous_run": 4,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -75,19 +75,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261102019",
-      "title": "CT Scanner Suite Renovation - GC & MISC MEP Trades",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-12-16",
-      "score": 15,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "37202341",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261102020",
       "title": "Correction: Metropolitan - Nuclear Camera Suite Renovation GC Work and MISC MEP Trades",
       "agency": "NYC Health + Hospitals",
@@ -97,6 +84,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "37202041",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261102019",
+      "title": "CT Scanner Suite Renovation - GC & MISC MEP Trades",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-16",
+      "score": 15,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "37202341",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -188,6 +188,32 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "M104-DR-2026",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261106026",
+      "title": "FMC-ROLLUP DOOR-2027 - Installation and Repair of overhead roll up doors, Citywide",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-10",
+      "score": 11,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0008",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261106020",
+      "title": "Jacobi Building 1 Roof 2",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2027-01-07",
+      "score": 11,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "21202604",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -543,6 +569,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20260917021",
+      "title": "Bid Extension: NYC H+H/Queens - Dialysis Space Construction",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-09",
+      "score": 6,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "34202301_Queens Dial",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260916015",
       "title": "Bid Extension: 85626B0001-CSB Sidewalk Sheds and Scaffolding RC",
       "agency": "Citywide Administrative Services",
@@ -565,6 +604,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "SBH-02201602-Power-C",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261106018",
+      "title": "Jacobi Patient Account Decanting",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2027-01-07",
+      "score": 6,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "21202303",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
