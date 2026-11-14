@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-13T18:31:40+00:00",
+  "generated_at_utc": "2026-11-14T10:27:27+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-13T00%3A00%3A00%27&%24order=due_date+ASC",
+  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-14T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 66,
-  "new_since_previous_run": 4,
+  "count": 64,
+  "new_since_previous_run": 0,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -75,19 +75,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261102020",
-      "title": "Correction: Metropolitan - Nuclear Camera Suite Renovation GC Work and MISC MEP Trades",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-12-16",
-      "score": 15,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "37202041",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261102019",
       "title": "CT Scanner Suite Renovation - GC & MISC MEP Trades",
       "agency": "NYC Health + Hospitals",
@@ -97,6 +84,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "37202341",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261102020",
+      "title": "Correction: Metropolitan - Nuclear Camera Suite Renovation GC Work and MISC MEP Trades",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-16",
+      "score": 15,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "37202041",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -253,19 +253,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82627B0022",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260921012",
-      "title": "Coney Island Cyclone roller coaster and Coney Island Parachute Jump RFP",
-      "agency": "Parks and Recreation",
-      "due_date": "2026-11-13",
-      "score": 9,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "B368-O-2026",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -465,19 +452,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261105023",
-      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
-      "agency": "Transportation",
-      "due_date": "2026-12-16",
-      "score": 8,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "84126B0029",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261105022",
       "title": "When & Where Structural and Miscellaneous Repairs - Manhattan and Queens",
       "agency": "Transportation",
@@ -491,6 +465,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261105023",
+      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
+      "agency": "Transportation",
+      "due_date": "2026-12-16",
+      "score": 8,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84126B0029",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260713031",
       "title": "Garage Demolition and Replacement",
       "agency": "Sanitation",
@@ -500,19 +487,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82726B0005",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20261002034",
-      "title": "On-Call Environmental Services",
-      "agency": "Brooklyn Navy Yard Development Corp.",
-      "due_date": "2026-11-13",
-      "score": 6,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "000352",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -660,19 +634,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261026020",
-      "title": "HWCB27QXM: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
-      "agency": "Design and Construction",
-      "due_date": "2026-11-23",
-      "score": 4,
-      "category": "Construction Related Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85027B0025",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261026019",
       "title": "HWCB27KR: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
       "agency": "Design and Construction",
@@ -682,6 +643,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85027B0026",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261026020",
+      "title": "HWCB27QXM: REPLACEMENT OF CONCRETE, STEEL FACED AND GRANITE CURBS AND RELATED SIDEWALK AND ROADWAY RESTORATION",
+      "agency": "Design and Construction",
+      "due_date": "2026-11-23",
+      "score": 4,
+      "category": "Construction Related Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "85027B0025",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
