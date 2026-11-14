@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-14T10:27:27+00:00",
+  "generated_at_utc": "2026-11-14T17:09:40+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
@@ -76,7 +76,7 @@
     },
     {
       "id": "20261102019",
-      "title": "CT Scanner Suite Renovation - GC & MISC MEP Trades",
+      "title": "Correction: CT Scanner Suite Renovation - GC & MISC MEP Trades",
       "agency": "NYC Health + Hospitals",
       "due_date": "2026-12-16",
       "score": 15,
@@ -115,7 +115,7 @@
     },
     {
       "id": "20261013013",
-      "title": "22202201- NYC H+H - Gotham/ East New York - ADA Restroom, Office Storage and Lounge Renovation",
+      "title": "Correction: 22202201- NYC H+H - Gotham/ East New York - ADA Restroom, Office Storage and Lounge Renovation",
       "agency": "NYC Health + Hospitals",
       "due_date": "2026-12-03",
       "score": 13,
@@ -206,7 +206,7 @@
     },
     {
       "id": "20261106020",
-      "title": "Jacobi Building 1 Roof 2",
+      "title": "Correction: Jacobi Building 1 Roof 2",
       "agency": "NYC Health + Hospitals",
       "due_date": "2027-01-07",
       "score": 11,
@@ -452,19 +452,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261105022",
-      "title": "When & Where Structural and Miscellaneous Repairs - Manhattan and Queens",
-      "agency": "Transportation",
-      "due_date": "2026-12-16",
-      "score": 8,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "84126B0028",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261105023",
       "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
       "agency": "Transportation",
@@ -474,6 +461,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "84126B0029",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261105022",
+      "title": "When & Where Structural and Miscellaneous Repairs - Manhattan and Queens",
+      "agency": "Transportation",
+      "due_date": "2026-12-16",
+      "score": 8,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84126B0028",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -583,7 +583,7 @@
     },
     {
       "id": "20261106018",
-      "title": "Jacobi Patient Account Decanting",
+      "title": "Correction: Jacobi Patient Account Decanting",
       "agency": "NYC Health + Hospitals",
       "due_date": "2027-01-07",
       "score": 6,
