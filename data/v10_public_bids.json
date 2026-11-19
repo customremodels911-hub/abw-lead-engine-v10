@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-19T04:12:22+00:00",
+  "generated_at_utc": "2026-11-19T19:29:34+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-19T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 58,
-  "new_since_previous_run": 0,
+  "count": 59,
+  "new_since_previous_run": 1,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -175,6 +175,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "21202604",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261112006",
+      "title": "Hunter College - West Building Lower Roofs Replacement",
+      "agency": "City University",
+      "due_date": "2027-01-11",
+      "score": 11,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "HC-CUCF-20-26",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -582,19 +595,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261006031",
-      "title": "Bid Extension: RFP for Provider Data Management services",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-11-23",
-      "score": 4,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "MHP-1125",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261026031",
       "title": "BG-426M Brooklyn Street Tree Planting FY27 - CBs 6, 13",
       "agency": "Parks and Recreation",
@@ -604,6 +604,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "84627B0014",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261006031",
+      "title": "Bid Extension: RFP for Provider Data Management services",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-11-30",
+      "score": 4,
+      "category": "Services (other than human services)",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "MHP-1125",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -738,19 +751,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260413028",
-      "title": "NYC Parks M/WBE-Only Site Work Construction PQL",
-      "agency": "Parks and Recreation",
-      "due_date": "2027-04-20",
-      "score": 4,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "PQL000158",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20260413020",
       "title": "NYC Parks Site Work Construction PQL",
       "agency": "Parks and Recreation",
@@ -760,6 +760,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "PQL000154",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20260413028",
+      "title": "NYC Parks M/WBE-Only Site Work Construction PQL",
+      "agency": "Parks and Recreation",
+      "due_date": "2027-04-20",
+      "score": 4,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "PQL000158",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     }
