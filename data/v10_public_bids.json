@@ -1,11 +1,11 @@
 {
-  "generated_at_utc": "2026-11-18T19:24:19+00:00",
+  "generated_at_utc": "2026-11-19T04:12:22+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-18T00%3A00%3A00%27&%24order=due_date+ASC",
+  "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-19T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 64,
+  "count": 58,
   "new_since_previous_run": 0,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
@@ -49,19 +49,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260421016",
-      "title": "Bid Extension: 85624B0012-CSB 25th FL Construction at 1 Centre Street",
-      "agency": "Citywide Administrative Services",
-      "due_date": "2026-11-18",
-      "score": 15,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85624B0012",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261102020",
       "title": "Correction: Metropolitan - Nuclear Camera Suite Renovation GC Work and MISC MEP Trades",
       "agency": "NYC Health + Hospitals",
@@ -101,19 +88,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260625055",
-      "title": "Bid Extension: Elmhurst Hospital, Entryway Renovation",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-11-18",
-      "score": 13,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "33202207",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261013013",
       "title": "Correction: 22202201- NYC H+H - Gotham/ East New York - ADA Restroom, Office Storage and Lounge Renovation",
       "agency": "NYC Health + Hospitals",
@@ -123,19 +97,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "22202201- ENY- ADA-",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260514019",
-      "title": "Bid Extension: 85624B0007-CSB 360 Adams ADA Improvements Construction",
-      "agency": "Citywide Administrative Services",
-      "due_date": "2026-11-18",
-      "score": 12,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85624B0007",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -253,19 +214,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82627B0022",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20261014029",
-      "title": "82627P0002-BEPA: GI-PSE 1-3 Design Services Task Order Contract for Green Infrastructure in NYC Parks & City-owned Street Ends",
-      "agency": "Environmental Protection",
-      "due_date": "2026-11-18",
-      "score": 9,
-      "category": "Construction Related Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "82627P0002",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -452,19 +400,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261105023",
-      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
-      "agency": "Transportation",
-      "due_date": "2026-12-16",
-      "score": 8,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "84126B0029",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261105022",
       "title": "When & Where Structural and Miscellaneous Repairs - Manhattan and Queens",
       "agency": "Transportation",
@@ -474,6 +409,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "84126B0028",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261105023",
+      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
+      "agency": "Transportation",
+      "due_date": "2026-12-16",
+      "score": 8,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84126B0029",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -500,19 +448,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82726B0005",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20260929029",
-      "title": "82627B0004-BEDC OB-144A: Total Residual Chlorine (TRC) Optimization at the Oakwood Beach Wastewater Resource Recovery Facility (WRRF)",
-      "agency": "Environmental Protection",
-      "due_date": "2026-11-18",
-      "score": 6,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "82627B0004",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -617,19 +552,6 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "PQL000152",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20261009019",
-      "title": "85727B0030-Auto Body and Chassis Repair Services for Queens East (RE-AD)",
-      "agency": "Citywide Administrative Services",
-      "due_date": "2026-11-18",
-      "score": 4,
-      "category": "Services (other than human services)",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85727B0030",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
