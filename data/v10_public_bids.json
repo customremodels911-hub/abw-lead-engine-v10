@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-24T06:57:37+00:00",
+  "generated_at_utc": "2026-11-24T21:11:54+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-24T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 56,
-  "new_since_previous_run": 0,
+  "count": 59,
+  "new_since_previous_run": 3,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -19,6 +19,32 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "82626B0054",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261118002",
+      "title": "Facility Maintenance Information System",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-28",
+      "score": 28,
+      "category": "Goods and Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "2848",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261113002",
+      "title": "SMD_Services_IDIQ Contract for Mold Remediation at Various NYCHA Developments, Citywide",
+      "agency": "Housing Authority",
+      "due_date": "2026-12-24",
+      "score": 25,
+      "category": "Goods and Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -396,6 +422,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "84126B0029",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261118004",
+      "title": "Critical Facility Management Purchasing Services",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-28",
+      "score": 8,
+      "category": "Services (other than human services)",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "2877",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
