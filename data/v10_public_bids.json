@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-11-25T05:26:47+00:00",
+  "generated_at_utc": "2026-11-25T20:28:42+00:00",
   "source": "NYC Open Data / Current Solicitations",
   "api_endpoint": "https://data.cityofnewyork.us/resource/3khw-qi8f.json",
   "source_page": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
   "dataset_request_url": "https://data.cityofnewyork.us/resource/3khw-qi8f.json?%24limit=2000&%24where=due_date+%3E%3D+%272026-11-25T00%3A00%3A00%27&%24order=due_date+ASC",
   "market": "New York City",
-  "count": 59,
-  "new_since_previous_run": 0,
+  "count": 61,
+  "new_since_previous_run": 2,
   "note": "PUBLIC procurement signals, not verified customers, contacts, bookings, or earned revenue.",
   "opportunities": [
     {
@@ -62,28 +62,28 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20260922020",
+      "title": "Bid Extension: 82626B0065-BEDC - CSO-GC-SFS-OH-CP3 Construction of CSO Facilities for Gowanus Canal",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-10",
+      "score": 18,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82626B0065",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20260814014",
       "title": "Bid Extension: 85625B0009-CSB 151-20 Jamaica Roof Rep & WP",
       "agency": "Citywide Administrative Services",
-      "due_date": "2026-12-02",
+      "due_date": "2027-01-13",
       "score": 16,
       "category": "Construction/Construction Services",
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "85625B0009",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
-      "id": "20261102019",
-      "title": "Correction: CT Scanner Suite Renovation - GC & MISC MEP Trades",
-      "agency": "NYC Health + Hospitals",
-      "due_date": "2026-12-16",
-      "score": 15,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "37202341",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -97,6 +97,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "37202041",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20261102019",
+      "title": "Correction: CT Scanner Suite Renovation - GC & MISC MEP Trades",
+      "agency": "NYC Health + Hospitals",
+      "due_date": "2026-12-16",
+      "score": 15,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "37202341",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -115,9 +128,9 @@
     },
     {
       "id": "20261013013",
-      "title": "Correction: 22202201- NYC H+H - Gotham/ East New York - ADA Restroom, Office Storage and Lounge Renovation",
+      "title": "Bid Extension: 22202201- NYC H+H - Gotham/ East New York - ADA Restroom, Office Storage and Lounge Renovation",
       "agency": "NYC Health + Hospitals",
-      "due_date": "2026-12-03",
+      "due_date": "2026-12-17",
       "score": 13,
       "category": "Construction/Construction Services",
       "source": "NYC Open Data · Current Solicitations",
@@ -270,19 +283,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260820037",
-      "title": "Bid Extension: 85625B0011-CSB General Construction RC Man. & Bronx",
-      "agency": "Citywide Administrative Services",
-      "due_date": "2026-12-09",
-      "score": 9,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "85625B0011",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261027028",
       "title": "82627B0013-BEPA: GI-CONS-9: Installation of green infrastructure along North and South Conduit in Queens",
       "agency": "Environmental Protection",
@@ -374,6 +374,19 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20260820037",
+      "title": "Bid Extension: 85625B0011-CSB General Construction RC Man. & Bronx",
+      "agency": "Citywide Administrative Services",
+      "due_date": "2027-01-21",
+      "score": 9,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "85625B0011",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20261020018",
       "title": "Bid Extension: SMD-Requirement Contract for Installation of V/C Floor Tile in Apartments- Development Name, Located in Manhattan Neighborhood (MN08), and (MN09), Manhattan.",
       "agency": "Housing Authority",
@@ -400,19 +413,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20261105023",
-      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
-      "agency": "Transportation",
-      "due_date": "2026-12-16",
-      "score": 8,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "84126B0029",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20261105022",
       "title": "When & Where Structural and Miscellaneous Repairs - Manhattan and Queens",
       "agency": "Transportation",
@@ -426,8 +426,21 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
+      "id": "20261105023",
+      "title": "When & Where Structural and Miscellaneous Repair Brooklyn, Bronx and Staten Island",
+      "agency": "Transportation",
+      "due_date": "2026-12-16",
+      "score": 8,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "84126B0029",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
       "id": "20261118004",
-      "title": "Critical Facility Management Purchasing Services",
+      "title": "Correction: Critical Facility Management Purchasing Services",
       "agency": "NYC Health + Hospitals",
       "due_date": "2026-12-28",
       "score": 8,
@@ -474,6 +487,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "000351",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20260929029",
+      "title": "Bid Extension: 82627B0004-BEDC OB-144A: Total Residual Chlorine (TRC) Optimization at the Oakwood Beach Wastewater Resource Recovery Facility (WRRF)",
+      "agency": "Environmental Protection",
+      "due_date": "2026-12-08",
+      "score": 6,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "82627B0004",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     },
@@ -687,7 +713,7 @@
     },
     {
       "id": "20261001018",
-      "title": "Bid Extension: 24202204: NCB OTxHU Main Construction",
+      "title": "Correction: 24202204: NCB OTxHU Main Construction",
       "agency": "NYC Health + Hospitals",
       "due_date": "2026-12-17",
       "score": 4,
@@ -751,19 +777,6 @@
       "next_action": "Review official bid notice and bidding portal before responding"
     },
     {
-      "id": "20260413020",
-      "title": "NYC Parks Site Work Construction PQL",
-      "agency": "Parks and Recreation",
-      "due_date": "2027-04-20",
-      "score": 4,
-      "category": "Construction/Construction Services",
-      "source": "NYC Open Data · Current Solicitations",
-      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
-      "pin": "PQL000154",
-      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
-      "next_action": "Review official bid notice and bidding portal before responding"
-    },
-    {
       "id": "20260413028",
       "title": "NYC Parks M/WBE-Only Site Work Construction PQL",
       "agency": "Parks and Recreation",
@@ -773,6 +786,19 @@
       "source": "NYC Open Data · Current Solicitations",
       "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
       "pin": "PQL000158",
+      "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
+      "next_action": "Review official bid notice and bidding portal before responding"
+    },
+    {
+      "id": "20260413020",
+      "title": "NYC Parks Site Work Construction PQL",
+      "agency": "Parks and Recreation",
+      "due_date": "2027-04-20",
+      "score": 4,
+      "category": "Construction/Construction Services",
+      "source": "NYC Open Data · Current Solicitations",
+      "source_url": "https://data.cityofnewyork.us/City-Government/Current-Solicitations/3khw-qi8f",
+      "pin": "PQL000154",
       "verification": "Public procurement signal; scope, licensing, eligibility and availability require manual verification",
       "next_action": "Review official bid notice and bidding portal before responding"
     }
